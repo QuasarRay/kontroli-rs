@@ -17,7 +17,7 @@ Definition ctx_type_def:
 End
 
 (* Sigma maps constants to their declared types. R remains the user rewrite
-   relation; conversion is joinability in beta + compatible R reduction. *)
+   relation; conversion is the equivalence closure of beta + compatible R reduction. *)
 Inductive has_type:
 [~type_sort:]
   has_type Sigma R G TmType TmKind
@@ -52,7 +52,7 @@ Inductive has_type:
   has_type Sigma R G t A /\
   has_type Sigma R G B s /\
   is_sort s /\
-  joinable R A B ==>
+  convertible R A B ==>
   has_type Sigma R G t B
 End
 
@@ -111,14 +111,13 @@ Proof
   simp[rewrite_preserves_typing_def] >> metis_tac[]
 QED
 
-(* Conversion remains valid in either direction because joinability is
-   symmetric. This is independent of confluence; transitivity requires it. *)
+(* Declarative conversion is an equivalence relation by construction. *)
 Theorem conversion_symmetry:
   !Sigma R G t A B s.
     has_type Sigma R G t A /\
     has_type Sigma R G B s /\
     is_sort s /\
-    joinable R A B ==>
+    convertible R A B ==>
     has_type Sigma R G t B
 Proof
   metis_tac[has_type_rules]
