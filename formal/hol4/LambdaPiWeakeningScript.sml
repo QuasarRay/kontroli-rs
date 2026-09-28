@@ -138,4 +138,50 @@ Proof
   metis_tac[has_type_insert]
 QED
 
+
+Theorem wf_context_snoc_inv:
+  !Sigma R G A.
+    wf_context Sigma R (G ++ [A]) ==>
+    wf_context Sigma R G /\
+    has_type Sigma R G A TmType
+Proof
+  rpt gen_tac >>
+  rw[Once wf_context_cases] >>
+  fs[GSYM SNOC_APPEND, SNOC_11]
+QED
+
+Theorem wf_context_prefix:
+  !Sigma R G H.
+    wf_context Sigma R (G ++ H) ==>
+    wf_context Sigma R G
+Proof
+  rpt gen_tac >>
+  Induct_on `H` using SNOC_INDUCT
+  >- simp[]
+  >- (rpt strip_tac >>
+      fs[SNOC_APPEND, APPEND_ASSOC] >>
+      metis_tac[wf_context_snoc_inv])
+QED
+
+Theorem wf_context_insert:
+  !Sigma R G H B.
+    signature_wf Sigma R /\
+    rewrite_lift_closed R /\
+    wf_context Sigma R (G ++ H) /\
+    has_type Sigma R G B TmType ==>
+    wf_context Sigma R (insert_context G B H)
+Proof
+  rpt gen_tac >>
+  Induct_on `H` using SNOC_INDUCT
+  >- (simp[insert_context_empty_suffix] >>
+      metis_tac[wf_context_rules])
+  >- (rpt strip_tac >>
+      fs[SNOC_APPEND, APPEND_ASSOC, insert_context_snoc] >>
+      metis_tac[
+        wf_context_snoc_inv,
+        declarative_weakening,
+        wf_context_rules
+      ])
+QED
+
 val _ = export_theory();
