@@ -5,7 +5,7 @@
   "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
   "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
   "aegis_repo": "https://github.com/QuasarRay/Aegis.git",
-  "aegis_commit": "065e6c8357221999b3217a9607648d4fe46ac749",
+  "aegis_commit": "e01523fbf936ebfa2b9f81aa1ee64e421c88a7cb",
   "aegis_stack": [
     "QuasarRay/Aegis#9",
     "QuasarRay/Aegis#10"
