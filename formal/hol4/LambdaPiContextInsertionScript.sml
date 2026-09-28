@@ -112,4 +112,93 @@ Proof
   simp[insert_index_def] >> metis_tac[NOT_LESS]
 QED
 
+(* Prefix lifting commutes with a later lift whose cutoff is measured in the
+   unprefixed term. *)
+Theorem lift_prefix_commute:
+  !t p d c.
+    lift p 0 (lift d c t) =
+    lift d (c + p) (lift p 0 t)
+Proof
+  Induct >>
+  simp[ADD_ASSOC, ADD_COMM, ADD_LEFT_COMM]
+  >- (rpt gen_tac >> Cases_on `n < c` >> simp[] >> numLib.ARITH_TAC)
+QED
+
+Theorem el_append_offset:
+  !G H i.
+    i < LENGTH H ==>
+    EL (LENGTH G + i) (G ++ H) = EL i H
+Proof
+  simp[rich_listTheory.EL_APPEND2]
+QED
+
+(* A variable naming one of the newer suffix binders keeps its index when B is
+   inserted below the suffix.  Its type receives one lift at the full suffix
+   boundary. *)
+Theorem ctx_type_insert_suffix:
+  !G B H n A.
+    n < LENGTH H /\
+    ctx_type (G ++ H) n A ==>
+    ctx_type (insert_context G B H) n (lift 1 (LENGTH H) A)
+Proof
+  rw[ctx_type_def, insert_context_def] >>
+  conj_tac
+  >- simp[] >>
+  qpat_x_assum `A = _` SUBST1_TAC >>
+  qabbrev_tac `i = LENGTH H - SUC n` >>
+  `i < LENGTH H` by
+    (qunabbrev_tac `i` >> numLib.ARITH_TAC) >>
+  `LENGTH (G ++ H) - SUC n = LENGTH G + i` by
+    (qunabbrev_tac `i` >> simp[] >> numLib.ARITH_TAC) >>
+  `LENGTH (G ++ [B] ++ lift_ctx 1 H) - SUC n =
+    LENGTH (G ++ [B]) + i` by
+    (qunabbrev_tac `i` >> simp[] >> numLib.ARITH_TAC) >>
+  asm_simp_tac bool_ss
+    [el_append_offset, lift_ctx_def, lift_ctx_from_el,
+     lift_prefix_commute] >>
+  qunabbrev_tac `i` >>
+  numLib.ARITH_TAC
+QED
+
+(* A variable naming the older prefix moves by one because the inserted binder
+   is newer than that prefix but older than every suffix declaration. *)
+Theorem ctx_type_insert_prefix:
+  !G B H n A.
+    LENGTH H <= n /\
+    ctx_type (G ++ H) n A ==>
+    ctx_type (insert_context G B H) (SUC n)
+      (lift 1 (LENGTH H) A)
+Proof
+  rw[ctx_type_def, insert_context_def] >>
+  conj_tac
+  >- simp[] >>
+  qpat_x_assum `A = _` SUBST1_TAC >>
+  qabbrev_tac `m = n - LENGTH H` >>
+  `m < LENGTH G` by
+    (qunabbrev_tac `m` >> fs[] >> numLib.ARITH_TAC) >>
+  `LENGTH (G ++ H) - SUC n = LENGTH G - SUC m` by
+    (qunabbrev_tac `m` >> simp[] >> numLib.ARITH_TAC) >>
+  `LENGTH (G ++ [B] ++ lift_ctx 1 H) - SUC (SUC n) =
+    LENGTH G - SUC m` by
+    (qunabbrev_tac `m` >> simp[] >> numLib.ARITH_TAC) >>
+  `LENGTH G - SUC m < LENGTH G` by numLib.ARITH_TAC >>
+  asm_simp_tac bool_ss
+    [rich_listTheory.EL_APPEND1, lift_fusion] >>
+  numLib.ARITH_TAC
+QED
+
+Theorem ctx_type_insert:
+  !G B H n A.
+    ctx_type (G ++ H) n A ==>
+    ctx_type (insert_context G B H)
+      (insert_index (LENGTH H) n)
+      (lift 1 (LENGTH H) A)
+Proof
+  rpt gen_tac >> strip_tac >>
+  Cases_on `n < LENGTH H`
+  >- metis_tac[ctx_type_insert_suffix, insert_index_below] >>
+  `LENGTH H <= n` by metis_tac[NOT_LESS] >>
+  metis_tac[ctx_type_insert_prefix, insert_index_at_or_above]
+QED
+
 val _ = export_theory();
