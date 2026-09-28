@@ -1,6 +1,6 @@
 Theory LambdaPiSubstitution
 Ancestors
-  LambdaPiTyping
+  LambdaPiTyping LambdaPiBinderAlgebra
 Libs
   boolSimps
 
