@@ -10,6 +10,9 @@ on:
       - 'AGENTS.md'
       - '.github/workflows/hol4.yml'
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
