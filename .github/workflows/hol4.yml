@@ -39,7 +39,7 @@ jobs:
       - name: Install prerequisites
         run: |
           sudo apt-get update
-          sudo apt-get install -y polyml git python3-pip
+          sudo apt-get install -y polyml libpolyml-dev git python3-pip
 
       - name: Build pinned HOL4
         run: |
