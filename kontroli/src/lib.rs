@@ -128,7 +128,7 @@ pub use gctx::GCtx;
 pub use lterm::LTerm;
 pub use parse::Intro;
 pub use pattern::Pattern;
-pub use rule::Rule;
+pub use rule::{Error as RuleError, Rule};
 pub use share::Share;
 pub use symbol::Symbol;
 pub use symbols::Symbols;
