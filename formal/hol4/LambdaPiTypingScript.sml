@@ -38,12 +38,6 @@ Inductive has_type:
   is_sort s /\
   has_type Sigma R (G ++ [A]) b B ==>
   has_type Sigma R G (TmLam A b) (TmPi A B)
-[~abstraction_unannotated:]
-  has_type Sigma R G A TmType /\
-  has_type Sigma R (G ++ [A]) B s /\
-  is_sort s /\
-  has_type Sigma R (G ++ [A]) b B ==>
-  has_type Sigma R G (TmLamU b) (TmPi A B)
 [~application:]
   has_type Sigma R G f (TmPi A B) /\
   has_type Sigma R G a A ==>
