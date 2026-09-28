@@ -83,4 +83,55 @@ Proof
   metis_tac[pi_root_free_product_compatible, joinable_trans_confluent]
 QED
 
+
+(* Per-rule formulation of the rewrite-safety obligation used by the
+   subject-reduction theorem.  This mirrors the standard metatheory:
+   a rewrite rule must preserve every type it can have in the final theory. *)
+Definition rule_well_typed_def:
+  rule_well_typed Sigma R l r <=>
+    !G A. has_type Sigma R G l A ==> has_type Sigma R G r A
+End
+
+Theorem rewrite_preserves_typing_iff_rules_well_typed:
+  !Sigma R.
+    rewrite_preserves_typing Sigma R <=>
+    !l r. R l r ==> rule_well_typed Sigma R l r
+Proof
+  simp[rewrite_preserves_typing_def, rule_well_typed_def] >>
+  metis_tac[]
+QED
+
+Definition relation_extends_def:
+  relation_extends R R' <=> !t u. R t u ==> R' t u
+End
+
+(* Saillard's "permanently well-typed" condition: once a rule is accepted in
+   a prefix theory, it remains well-typed in every product-compatible
+   extension.  This is the property the executable rewrite-rule checker must
+   ultimately refine for checked rules. *)
+Definition permanently_well_typed_rule_def:
+  permanently_well_typed_rule Sigma R l r <=>
+    !R'.
+      relation_extends R R' /\ product_compatible R' ==>
+      rule_well_typed Sigma R' l r
+End
+
+Theorem permanent_rule_safe_in_extension:
+  !Sigma R l r R'.
+    permanently_well_typed_rule Sigma R l r /\
+    relation_extends R R' /\
+    product_compatible R' ==>
+    rule_well_typed Sigma R' l r
+Proof
+  simp[permanently_well_typed_rule_def] >> metis_tac[]
+QED
+
+Theorem final_relation_safe_from_per_rule_obligation:
+  !Sigma R.
+    (!l r. R l r ==> rule_well_typed Sigma R l r) ==>
+    rewrite_preserves_typing Sigma R
+Proof
+  metis_tac[rewrite_preserves_typing_iff_rules_well_typed]
+QED
+
 val _ = export_theory();
