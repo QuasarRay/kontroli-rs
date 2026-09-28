@@ -154,6 +154,33 @@ Proof
   metis_tac[reduces_trans]
 QED
 
+
+Theorem red_implies_joinable:
+  !R t u. red R t u ==> joinable R t u
+Proof
+  rw[joinable_def] >>
+  qexists_tac `u` >>
+  metis_tac[reduces_step, reduces_refl]
+QED
+
+Theorem convertible_implies_joinable_confluent:
+  !R. confluent R ==>
+    !t u. convertible R t u ==> joinable R t u
+Proof
+  rw[convertible_def] >>
+  ho_match_mp_tac EQC_INDUCTION >>
+  metis_tac[red_implies_joinable, joinable_refl, joinable_sym,
+            joinable_trans_confluent]
+QED
+
+Theorem convertible_iff_joinable_confluent:
+  !R. confluent R ==>
+    !t u. convertible R t u <=> joinable R t u
+Proof
+  metis_tac[joinable_implies_convertible,
+            convertible_implies_joinable_confluent]
+QED
+
 Theorem joinable_equivalence_under_confluence:
   !R. confluent R ==>
     (!x. joinable R x x) /\
