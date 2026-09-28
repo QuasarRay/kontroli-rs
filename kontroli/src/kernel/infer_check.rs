@@ -16,6 +16,16 @@ impl<'s, 't> LCtx<'s, 't> {
         Some(self.0.iter().rev().nth(n)?.clone().shift(n + 1))
     }
 
+    pub(super) fn push_of_type(&mut self, gc: &'t GCtx<'s>, arg: STerm<'s, 't>) -> Result<()> {
+        match arg.infer(gc, self)? {
+            STerm::Type => {
+                self.0.push(arg);
+                Ok(())
+            }
+            _ => Err(Error::BindNoType),
+        }
+    }
+
     fn bind<A, F>(&mut self, arg: STerm<'s, 't>, f: F) -> Result<A>
     where
         F: FnOnce(&mut LCtx<'s, 't>) -> Result<A>,

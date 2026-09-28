@@ -23,11 +23,8 @@ where
         Command::Rules(rules) => {
             for rule in rules.iter().cloned() {
                 let rule = rule.map_lhs(kontroli::Pattern::from);
-                if let Ok(rule) = kontroli::Rule::try_from(rule) {
-                    f(kernel::rewrite(rule, gc)?, gc)?;
-                } else {
-                    log::warn!("Rewrite rule contains unannotated variable")
-                }
+                let rule = kontroli::Rule::try_from(rule).map_err(KoError::from)?;
+                f(kernel::rewrite(rule, gc)?, gc)?;
             }
             rules.into_iter().try_for_each(|r| gc.add_rule(r))?
         }
@@ -70,5 +67,35 @@ where
             .try_for_each(|ts| check(ts?).map_err(Error::Ko))
     } else {
         iter.try_for_each(|cmd| infer_check(cmd?, opt, gc).map_err(Error::Ko))
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use kontroli::symbol::Owned;
+    use kontroli::{App, LTerm, Pattern, Rule, RuleError, Symbol};
+
+    #[test]
+    fn unannotated_rewrite_rule_is_rejected_before_insertion() {
+        let owned = Owned::new("f".to_string());
+        let symbol = Symbol::new(&owned);
+        let rule = Rule {
+            ctx: vec![("X".to_string(), None)],
+            lhs: App {
+                symbol,
+                args: vec![Pattern::MVar(0)],
+            },
+            rhs: LTerm::Var(0),
+        };
+        let mut gc = GCtx::new();
+
+        let result = infer_with(Command::Rules(vec![rule]), &mut gc, |_check, _gc| Ok(()));
+
+        assert!(matches!(
+            result,
+            Err(KoError::Rule(RuleError::TypeAnnotation))
+        ));
     }
 }

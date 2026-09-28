@@ -1,8 +1,5 @@
 name: HOL4 metatheory
 on:
-  push:
-    branches:
-      - 'proof/**'
   pull_request:
     paths:
       - 'formal/hol4/**'

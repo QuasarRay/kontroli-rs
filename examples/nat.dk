@@ -16,30 +16,30 @@ def 9 := succ 8.
 
 (; Addition ;)
 def add : Nat -> Nat -> Nat.
-[X] add 0 X --> X
-[X, Y] add (succ X) Y --> succ (add X Y).
+[X: Nat] add 0 X --> X
+[X: Nat, Y: Nat] add (succ X) Y --> succ (add X Y).
 
 (; Multiplication ;)
 def mul : Nat -> Nat -> Nat.
-[X] mul 0 X --> 0
-[X, Y] mul (succ X) Y --> add Y (mul X Y).
+[X: Nat] mul 0 X --> 0
+[X: Nat, Y: Nat] mul (succ X) Y --> add Y (mul X Y).
 
 (; Exponentiation: exp x y = y^x ;)
 def exp : Nat -> Nat -> Nat.
-[X] exp 0 X --> 1
-[X, Y] exp (succ X) Y --> mul Y (exp X Y).
+[X: Nat] exp 0 X --> 1
+[X: Nat, Y: Nat] exp (succ X) Y --> mul Y (exp X Y).
 
 (; Factorial ;)
 def fac : Nat -> Nat.
 [] fac 0 --> 1
 [] fac (succ 0) --> 1
-[X] fac (succ X) --> mul (succ X) (fac X).
+[X: Nat] fac (succ X) --> mul (succ X) (fac X).
 
 (; Fibonacci ;)
 def fib : Nat -> Nat.
 [] fib 0 --> 0
 [] fib (succ 0) --> 1
-[X] fib (succ (succ X)) --> add (fib (succ X)) (fib X).
+[X: Nat] fib (succ (succ X)) --> add (fib (succ X)) (fib X).
 
 (; A dependent type used to check equality ;)
 Dep : Nat -> Type.
