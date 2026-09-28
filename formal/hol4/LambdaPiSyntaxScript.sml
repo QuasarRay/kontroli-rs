@@ -80,7 +80,7 @@ QED
 Theorem subst_var_above[simp]:
   !u c n. c < n ==> subst u c (TmVar n) = TmVar (n - 1)
 Proof
-  simp[] >> metis_tac[LESS_NOT_EQ, NOT_LESS]
+  simp[] >> metis_tac[LESS_ANTISYM, LESS_REFL]
 QED
 
 Theorem subst0_var0[simp]:
