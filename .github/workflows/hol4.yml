@@ -74,7 +74,10 @@ jobs:
           PY
 
       - name: Record current theory for TacticToe
-        run: bash /tmp/Aegis/scripts/record_tactictoe.sh KontroliBase formal/hol4
+        run: |
+          theory="$(tr -d '[:space:]' < formal/hol4/TACTICTOE_ROOT)"
+          test -n "$theory"
+          bash /tmp/Aegis/scripts/record_tactictoe.sh "$theory" formal/hol4
 
       - name: Save updated TacticToe knowledge
         if: success()
