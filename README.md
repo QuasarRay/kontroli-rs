@@ -57,8 +57,9 @@ There are a few differences with respect to Dedukti:
 * Kontroli does not support higher-order rewrite rules,
   as they would make the whole program considerably more complex,
   thus contradicting the idea of a small type checker.
-* Kontroli assures the type-safety of rewrite rules only if
-  all free pattern variables have type annotations.
+* Kontroli requires all free pattern variables in rewrite rules to have type
+  annotations. Rewrite-rule contexts and right-hand sides are type-checked
+  before the rule is admitted to the global context.
 * Kontroli does not use decision trees for rewriting.
 * Kontroli does not have any commands like `#EVAL` or `#ASSERT`,
   which are particularly used in Dedukti tests.
