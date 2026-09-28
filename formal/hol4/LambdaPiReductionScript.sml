@@ -38,6 +38,54 @@ Definition joinable_def:
     ?v. reduces R t v /\ reduces R u v
 End
 
+
+(* Declarative conversion of the lambda-Pi calculus modulo is the least
+   equivalence relation containing beta + user reduction.  It does not require
+   confluence.  Common-reduct joinability remains below as the executable /
+   confluent characterization. *)
+Definition convertible_def:
+  convertible R t u <=> EQC (red R) t u
+End
+
+Theorem red_implies_convertible:
+  !R t u. red R t u ==> convertible R t u
+Proof
+  simp[convertible_def] >> metis_tac[EQC_R]
+QED
+
+Theorem convertible_refl[simp]:
+  !R t. convertible R t t
+Proof
+  simp[convertible_def, EQC_REFL]
+QED
+
+Theorem convertible_sym:
+  !R t u. convertible R t u ==> convertible R u t
+Proof
+  simp[convertible_def] >> metis_tac[EQC_SYM]
+QED
+
+Theorem convertible_trans:
+  !R t u v.
+    convertible R t u /\ convertible R u v ==>
+    convertible R t v
+Proof
+  simp[convertible_def] >> metis_tac[EQC_TRANS]
+QED
+
+Theorem reduces_implies_convertible:
+  !R t u. reduces R t u ==> convertible R t u
+Proof
+  simp[reduces_def, convertible_def] >> metis_tac[RTC_EQC]
+QED
+
+Theorem joinable_implies_convertible:
+  !R t u. joinable R t u ==> convertible R t u
+Proof
+  simp[joinable_def] >>
+  metis_tac[reduces_implies_convertible, convertible_sym, convertible_trans]
+QED
+
 Definition confluent_def:
   confluent R <=>
     !x y z. reduces R x y /\ reduces R x z ==>
