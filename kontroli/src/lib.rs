@@ -71,8 +71,15 @@
 //!             }
 //!             gc.insert(sym, typing, rewritable)?
 //!         }
-//!         // addition of rewrite rules (without typechecking them!)
-//!         Command::Rules(rules) => rules.into_iter().try_for_each(|r| gc.add_rule(r))?,
+//!         // typecheck rewrite rules before admitting them
+//!         Command::Rules(rules) => {
+//!             for rule in rules.iter().cloned() {
+//!                 let rule = rule.map_lhs(kontroli::Pattern::from);
+//!                 let rule = kontroli::Rule::try_from(rule)?;
+//!                 kernel::rewrite(rule, &gc)?.check(&gc)?;
+//!             }
+//!             rules.into_iter().try_for_each(|r| gc.add_rule(r))?
+//!         }
 //!     }
 //! }
 //! # Ok::<_, Error>(())
