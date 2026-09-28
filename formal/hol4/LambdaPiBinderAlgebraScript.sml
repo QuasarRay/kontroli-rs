@@ -1,6 +1,6 @@
 Theory LambdaPiBinderAlgebra
 Ancestors
-  LambdaPiTyping
+  LambdaPiTyping rich_list
 Libs
   boolSimps numLib
 
@@ -37,7 +37,7 @@ Theorem ctx_type_extend_zero:
   !G A.
     ctx_type (G ++ [A]) 0 (lift 1 0 A)
 Proof
-  simp[ctx_type_def]
+  simp[ctx_type_def, rich_listTheory.EL_LENGTH_APPEND_0]
 QED
 
 Theorem ctx_type_empty:
