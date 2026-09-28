@@ -12,6 +12,7 @@ Datatype:
   | TmVar num
   | TmApp term term
   | TmLam term term
+  | TmLamU term
   | TmPi term term
 End
 
@@ -26,6 +27,7 @@ Definition lift_def[simp]:
     if n < c then TmVar n else TmVar (n + d)) /\
   (lift d c (TmApp f a) = TmApp (lift d c f) (lift d c a)) /\
   (lift d c (TmLam A b) = TmLam (lift d c A) (lift d (c + 1) b)) /\
+  (lift d c (TmLamU b) = TmLamU (lift d (c + 1) b)) /\
   (lift d c (TmPi A B) = TmPi (lift d c A) (lift d (c + 1) B))
 End
 
@@ -40,6 +42,7 @@ Definition subst_def[simp]:
     else TmVar (n - 1)) /\
   (subst u c (TmApp f a) = TmApp (subst u c f) (subst u c a)) /\
   (subst u c (TmLam A b) = TmLam (subst u c A) (subst u (c + 1) b)) /\
+  (subst u c (TmLamU b) = TmLamU (subst u (c + 1) b)) /\
   (subst u c (TmPi A B) = TmPi (subst u c A) (subst u (c + 1) B))
 End
 
