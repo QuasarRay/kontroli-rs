@@ -16,8 +16,8 @@ End
 Definition product_compatible_def:
   product_compatible R <=>
     !A1 B1 A2 B2.
-      joinable R (TmPi A1 B1) (TmPi A2 B2) ==>
-      joinable R A1 A2 /\ joinable R B1 B2
+      convertible R (TmPi A1 B1) (TmPi A2 B2) ==>
+      convertible R A1 A2 /\ convertible R B1 B2
 End
 
 Theorem red_pi_inv:
@@ -63,24 +63,39 @@ Proof
   metis_tac[rtc_red_pi_inv]
 QED
 
-Theorem pi_root_free_product_compatible:
-  !R. pi_root_free R ==> product_compatible R
+Theorem pi_root_free_joinable_products:
+  !R A1 B1 A2 B2.
+    pi_root_free R /\
+    joinable R (TmPi A1 B1) (TmPi A2 B2) ==>
+    joinable R A1 A2 /\ joinable R B1 B2
 Proof
-  rw[product_compatible_def, joinable_def] >>
+  rw[joinable_def] >>
   drule_all reduces_pi_inv >>
   drule_all reduces_pi_inv >>
   metis_tac[]
 QED
 
-(* With confluence, the already-proved transitivity of joinability and
-   Pi-injectivity give the conversion properties used by the typing
-   metatheory.  Confluence is not hidden in product compatibility itself. *)
+(* Root-freeness alone is not enough for EQC conversion: an inverse rewrite
+   can enter a product from a non-product.  Confluence turns EQC conversion
+   into common-reduct joinability, after which the structural inversion proof
+   applies. *)
+Theorem confluent_pi_root_free_product_compatible:
+  !R. pi_root_free R /\ confluent R ==> product_compatible R
+Proof
+  rw[product_compatible_def] >>
+  `joinable R (TmPi A1 B1) (TmPi A2 B2)` by
+    metis_tac[convertible_implies_joinable_confluent] >>
+  `joinable R A1 A2 /\ joinable R B1 B2` by
+    metis_tac[pi_root_free_joinable_products] >>
+  metis_tac[joinable_implies_convertible]
+QED
+
 Theorem confluent_conversion_and_product_compatibility:
   !R. pi_root_free R /\ confluent R ==>
     product_compatible R /\
-    (!x y z. joinable R x y /\ joinable R y z ==> joinable R x z)
+    (!x y z. convertible R x y /\ convertible R y z ==> convertible R x z)
 Proof
-  metis_tac[pi_root_free_product_compatible, joinable_trans_confluent]
+  metis_tac[confluent_pi_root_free_product_compatible, convertible_trans]
 QED
 
 

@@ -38,6 +38,12 @@ Definition mode_red_def:
     red R t u \/ (eta /\ eta_red t u)
 End
 
+
+Definition mode_convertible_def:
+  mode_convertible eta R t u <=>
+    EQC (\x y. mode_red eta R x y) t u
+End
+
 Definition mode_reduces_def:
   mode_reduces eta R t u <=>
     RTC (\x y. mode_red eta R x y) t u
@@ -60,6 +66,12 @@ Proof
   simp[mode_red_def]
 QED
 
+Theorem mode_convertible_no_eta[simp]:
+  !R t u. mode_convertible F R t u <=> convertible R t u
+Proof
+  simp[mode_convertible_def, convertible_def, mode_red_def]
+QED
+
 Theorem mode_reduces_no_eta[simp]:
   !R t u. mode_reduces F R t u <=> reduces R t u
 Proof
@@ -74,7 +86,7 @@ QED
 
 Theorem default_mode_is_base_calculus:
   !R t u.
-    mode_joinable F R t u <=> joinable R t u
+    mode_convertible F R t u <=> convertible R t u
 Proof
   simp[]
 QED
