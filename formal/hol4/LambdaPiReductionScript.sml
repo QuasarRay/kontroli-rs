@@ -9,6 +9,8 @@ Libs
 Inductive red:
 [~beta:]
   red R (TmApp (TmLam A b) u) (subst0 u b)
+[~beta_unannotated:]
+  red R (TmApp (TmLamU b) u) (subst0 u b)
 [~user:]
   R t u ==> red R t u
 [~app_fun:]
@@ -19,6 +21,8 @@ Inductive red:
   red R A A' ==> red R (TmLam A b) (TmLam A' b)
 [~lam_body:]
   red R b b' ==> red R (TmLam A b) (TmLam A b')
+[~lamU_body:]
+  red R b b' ==> red R (TmLamU b) (TmLamU b')
 [~pi_domain:]
   red R A A' ==> red R (TmPi A B) (TmPi A' B)
 [~pi_codomain:]
@@ -48,6 +52,12 @@ QED
 
 Theorem beta_is_red:
   !R A b u. red R (TmApp (TmLam A b) u) (subst0 u b)
+Proof
+  metis_tac[red_rules]
+QED
+
+Theorem beta_unannotated_is_red:
+  !R b u. red R (TmApp (TmLamU b) u) (subst0 u b)
 Proof
   metis_tac[red_rules]
 QED
