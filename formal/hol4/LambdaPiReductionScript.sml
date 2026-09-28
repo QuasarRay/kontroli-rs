@@ -38,6 +38,54 @@ Definition joinable_def:
     ?v. reduces R t v /\ reduces R u v
 End
 
+
+(* Declarative conversion of the lambda-Pi calculus modulo is the least
+   equivalence relation containing beta + user reduction.  It does not require
+   confluence.  Common-reduct joinability remains below as the executable /
+   confluent characterization. *)
+Definition convertible_def:
+  convertible R t u <=> EQC (red R) t u
+End
+
+Theorem red_implies_convertible:
+  !R t u. red R t u ==> convertible R t u
+Proof
+  simp[convertible_def] >> metis_tac[EQC_R]
+QED
+
+Theorem convertible_refl[simp]:
+  !R t. convertible R t t
+Proof
+  simp[convertible_def, EQC_REFL]
+QED
+
+Theorem convertible_sym:
+  !R t u. convertible R t u ==> convertible R u t
+Proof
+  simp[convertible_def] >> metis_tac[EQC_SYM]
+QED
+
+Theorem convertible_trans:
+  !R t u v.
+    convertible R t u /\ convertible R u v ==>
+    convertible R t v
+Proof
+  simp[convertible_def] >> metis_tac[EQC_TRANS]
+QED
+
+Theorem reduces_implies_convertible:
+  !R t u. reduces R t u ==> convertible R t u
+Proof
+  simp[reduces_def, convertible_def] >> metis_tac[RTC_EQC]
+QED
+
+Theorem joinable_implies_convertible:
+  !R t u. joinable R t u ==> convertible R t u
+Proof
+  simp[joinable_def] >>
+  metis_tac[reduces_implies_convertible, convertible_sym, convertible_trans]
+QED
+
 Definition confluent_def:
   confluent R <=>
     !x y z. reduces R x y /\ reduces R x z ==>
@@ -104,6 +152,33 @@ Proof
   `?c. reduces R a c /\ reduces R b c` by metis_tac[] >>
   qexists_tac `c` >>
   metis_tac[reduces_trans]
+QED
+
+
+Theorem red_implies_joinable:
+  !R t u. red R t u ==> joinable R t u
+Proof
+  rw[joinable_def] >>
+  qexists_tac `u` >>
+  metis_tac[reduces_step, reduces_refl]
+QED
+
+Theorem convertible_implies_joinable_confluent:
+  !R. confluent R ==>
+    !t u. convertible R t u ==> joinable R t u
+Proof
+  rw[convertible_def] >>
+  ho_match_mp_tac EQC_INDUCTION >>
+  metis_tac[red_implies_joinable, joinable_refl, joinable_sym,
+            joinable_trans_confluent]
+QED
+
+Theorem convertible_iff_joinable_confluent:
+  !R. confluent R ==>
+    !t u. convertible R t u <=> joinable R t u
+Proof
+  metis_tac[joinable_implies_convertible,
+            convertible_implies_joinable_confluent]
 QED
 
 Theorem joinable_equivalence_under_confluence:
