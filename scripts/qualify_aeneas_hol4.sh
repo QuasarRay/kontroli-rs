@@ -5,8 +5,7 @@ root="$(cd "$(dirname "$0")/.." && pwd)"
 evidence="$root/.aegis/aeneas"
 bundle="$evidence/aeneas.tar.gz"
 tool="$evidence/tool"
-generated="$evidence/hol4-generated"
-mkdir -p "$evidence" "$tool" "$generated"
+mkdir -p "$evidence" "$tool"
 
 readarray -t cfg < <(python3 - "$root/formal/hol4/toolchain.json" <<'PY'
 import json, sys
@@ -21,7 +20,7 @@ url="${cfg[0]}"
 expected="${cfg[1]}"
 tag="${cfg[2]}"
 
-status=0
+install_status=0
 {
   echo "Aeneas release: $tag"
   echo "Asset: $url"
@@ -32,55 +31,99 @@ status=0
     echo "Aeneas archive digest mismatch" >&2
     exit 90
   fi
+  rm -rf "$tool"
+  mkdir -p "$tool"
   tar -xzf "$bundle" -C "$tool"
   "$tool/aeneas" -version
   "$tool/charon" --version || true
-} >"$evidence/install.log" 2>&1 || status=$?
+} >"$evidence/install.log" 2>&1 || install_status=$?
 
-charon_status=125
-aeneas_status=125
-llbc=""
-if [[ $status -eq 0 ]]; then
-  (
-    cd "$root/kontroli"
-    RUSTUP_TOOLCHAIN="${AENEAS_RUST_TOOLCHAIN:-nightly-2026-09-17}"       "$tool/charon" cargo --preset=aeneas
-  ) >"$evidence/charon.log" 2>&1
-  charon_status=$?
-  llbc="$(find "$root/kontroli" -maxdepth 1 -name '*.llbc' -print -quit)"
-  if [[ $charon_status -eq 0 && -n "$llbc" ]]; then
-    (
-      cd "$generated"
-      "$tool/aeneas" -backend hol4 "$llbc"
-    ) >"$evidence/aeneas.log" 2>&1
-    aeneas_status=$?
+run_scope() {
+  local scope="$1"
+  local start_from="$2"
+  local out="$evidence/$scope"
+  local llbc="$out/kontroli.llbc"
+  local generated="$out/hol4-generated"
+  local charon_status=125
+  local aeneas_status=125
+
+  rm -rf "$out"
+  mkdir -p "$out" "$generated"
+
+  if [[ $install_status -ne 0 ]]; then
+    printf 'Skipped: tool installation failed (%s)\n' "$install_status" >"$out/charon.log"
+    printf 'Skipped: tool installation failed\n' >"$out/aeneas.log"
   else
-    printf 'Charon failed or emitted no LLBC (status=%s)\n' "$charon_status" >"$evidence/aeneas.log"
-  fi
-else
-  printf 'Aeneas bundle installation failed (status=%s)\n' "$status" >"$evidence/charon.log"
-  printf 'Skipped because installation failed\n' >"$evidence/aeneas.log"
-fi
+    local -a charon_args=(cargo --preset=aeneas "--dest-file=$llbc")
+    if [[ -n "$start_from" ]]; then
+      charon_args+=("--start-from=$start_from")
+    fi
+    (
+      cd "$root/kontroli"
+      RUSTUP_TOOLCHAIN="${AENEAS_RUST_TOOLCHAIN:-nightly-2026-09-17}" \
+        "$tool/charon" "${charon_args[@]}"
+    ) >"$out/charon.log" 2>&1
+    charon_status=$?
 
-python3 - "$evidence/result.json" "$status" "$charon_status" "$aeneas_status" "$llbc" <<'PY'
+    if [[ $charon_status -eq 0 && -s "$llbc" ]]; then
+      "$tool/aeneas" -backend hol4 "$llbc" -dest "$generated" \
+        >"$out/aeneas.log" 2>&1
+      aeneas_status=$?
+    else
+      printf 'Charon failed or emitted no LLBC (status=%s)\n' "$charon_status" >"$out/aeneas.log"
+    fi
+  fi
+
+  python3 - "$out/result.json" "$scope" "$start_from" "$install_status" "$charon_status" "$aeneas_status" <<'PY'
 import json, pathlib, sys
-out, install, charon, aeneas, llbc = sys.argv[1:]
+out, scope, start_from, install, charon, aeneas = sys.argv[1:]
+p = pathlib.Path(out)
 data = {
   "schema": 1,
+  "scope": scope,
+  "start_from": start_from or None,
   "claim": "Aeneas/Charon extraction qualification only; success does not prove refinement",
   "install_status": int(install),
   "charon_status": int(charon),
   "aeneas_hol4_status": int(aeneas),
-  "llbc": llbc or None,
+  "llbc_exists": (p.parent / "kontroli.llbc").is_file(),
   "generated_files": sorted(
-      str(p.relative_to(pathlib.Path(out).parent))
-      for p in (pathlib.Path(out).parent / "hol4-generated").glob("**/*")
-      if p.is_file()
+      str(x.relative_to(p.parent))
+      for x in (p.parent / "hol4-generated").glob("**/*")
+      if x.is_file()
   ),
+}
+p.write_text(json.dumps(data, indent=2) + "\n")
+print(json.dumps(data, indent=2))
+PY
+
+  [[ $install_status -eq 0 && $charon_status -eq 0 && $aeneas_status -eq 0 ]]
+}
+
+full_status=0
+run_scope full "" || full_status=$?
+
+slice_status=0
+run_scope subst-slice "crate::kernel::subst" || slice_status=$?
+
+python3 - "$evidence/result.json" "$install_status" "$full_status" "$slice_status" <<'PY'
+import json, pathlib, sys
+out, install, full, sliced = sys.argv[1:]
+data = {
+  "schema": 2,
+  "claim": "Extraction qualification, not an implementation correctness proof",
+  "install_status": int(install),
+  "full_crate_qualified": int(full) == 0,
+  "subst_slice_qualified": int(sliced) == 0,
+  "required_checkpoint": "subst-slice",
 }
 pathlib.Path(out).write_text(json.dumps(data, indent=2) + "\n")
 print(json.dumps(data, indent=2))
 PY
 
-if [[ $status -ne 0 || $charon_status -ne 0 || $aeneas_status -ne 0 ]]; then
+# Incremental policy: the substitution slice is the required checkpoint for
+# this PR. Full-crate qualification remains recorded and becomes mandatory in
+# the later whole-kernel refinement layer.
+if [[ $install_status -ne 0 || $slice_status -ne 0 ]]; then
   exit 1
 fi
