@@ -2,6 +2,7 @@
 
 use crate::gctx::Error as GCtxError;
 use crate::kernel::Error as TypingError;
+use crate::RuleError;
 use crate::share::Error as ShareError;
 use crate::symbols::Error as SymbolsError;
 
@@ -12,6 +13,7 @@ pub enum Error {
     GCtx(GCtxError),
     Symbols(SymbolsError),
     Typing(TypingError),
+    Rule(RuleError),
 }
 
 impl From<ShareError> for Error {
@@ -35,5 +37,11 @@ impl From<SymbolsError> for Error {
 impl From<TypingError> for Error {
     fn from(err: TypingError) -> Self {
         Self::Typing(err)
+    }
+}
+
+impl From<RuleError> for Error {
+    fn from(err: RuleError) -> Self {
+        Self::Rule(err)
     }
 }
