@@ -1,0 +1,73 @@
+Theory LambdaPiWeakening
+Ancestors
+  LambdaPiContextInsertion
+Libs
+  boolSimps numLib
+
+(* Lifting commutes with beta substitution when the beta binder is accounted
+   for by incrementing the cutoff in the body. *)
+Theorem lift_subst0_commute:
+  !t a d c.
+    lift d c (subst0 a t) =
+    subst0 (lift d c a) (lift d (SUC c) t)
+Proof
+  Induct >>
+  simp[subst0_def] >>
+  rpt gen_tac >>
+  Cases_on `n` >>
+  simp[] >>
+  Cases_on `n' < c` >>
+  simp[] >>
+  numLib.ARITH_TAC
+QED
+
+Definition rewrite_lift_closed_def:
+  rewrite_lift_closed R <=>
+    !t v d c.
+      R t v ==> R (lift d c t) (lift d c v)
+End
+
+Definition red_lift_closed_def:
+  red_lift_closed R <=>
+    !t v d c.
+      red R t v ==> red R (lift d c t) (lift d c v)
+End
+
+Theorem red_lift_from_rewrite_closed:
+  !R t v.
+    rewrite_lift_closed R /\ red R t v ==>
+    !d c. red R (lift d c t) (lift d c v)
+Proof
+  ho_match_mp_tac red_ind >>
+  rw[rewrite_lift_closed_def] >>
+  simp[lift_subst0_commute] >>
+  metis_tac[red_rules]
+QED
+
+Theorem rewrite_lift_closed_implies_red:
+  !R. rewrite_lift_closed R ==> red_lift_closed R
+Proof
+  simp[red_lift_closed_def] >>
+  metis_tac[red_lift_from_rewrite_closed]
+QED
+
+Theorem convertible_lift_closed:
+  !R.
+    red_lift_closed R ==>
+    !t v. convertible R t v ==>
+      !d c. convertible R (lift d c t) (lift d c v)
+Proof
+  rw[red_lift_closed_def, convertible_def] >>
+  ho_match_mp_tac EQC_INDUCTION >>
+  metis_tac[EQC_R, EQC_REFL, EQC_SYM, EQC_TRANS]
+QED
+
+Theorem convertible_lift_from_rewrite_closed:
+  !R t v d c.
+    rewrite_lift_closed R /\ convertible R t v ==>
+    convertible R (lift d c t) (lift d c v)
+Proof
+  metis_tac[rewrite_lift_closed_implies_red, convertible_lift_closed]
+QED
+
+val _ = export_theory();
