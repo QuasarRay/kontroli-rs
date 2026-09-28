@@ -69,13 +69,14 @@ jobs:
           python3 - <<'PY'
           import json
           from pathlib import Path
-          from agentinfra.hol4 import holmake, mcp_stdio_config
+          from agentinfra.hol4 import holmake, mcp_stdio_config, mcp_smoke
           root = Path.cwd()
           cfg = mcp_stdio_config(root)
+          mcp = mcp_smoke(root, timeout=30)
           result = holmake(root, "formal/hol4", timeout=1200)
           out = root / ".aegis/hol4-evidence.json"
           out.parent.mkdir(exist_ok=True)
-          out.write_text(json.dumps({"mcp": cfg, "holmake": result}, indent=2) + "\n")
+          out.write_text(json.dumps({"mcp_config": cfg, "mcp_smoke": mcp, "holmake": result}, indent=2) + "\n")
           if result["status"] != "CHECKED":
               raise SystemExit(1)
           PY
