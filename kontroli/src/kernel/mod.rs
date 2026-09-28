@@ -7,6 +7,7 @@ mod sterm;
 mod subst;
 
 use crate::share::{Intro, Pattern, Rule, TopPattern};
+use infer_check::LCtx;
 use sterm::{LTerm, STerm};
 
 pub type GCtx<'s> = crate::GCtx<crate::Symbol<'s>, Pattern<'s>, LTerm<'s>>;
@@ -89,8 +90,10 @@ pub fn intro<'s>(it: Intro<'s>, gc: &GCtx<'s>) -> IntroResult<'s> {
 }
 
 pub fn rewrite<'s>(rule: crate::Rule<LTerm<'s>>, gc: &GCtx<'s>) -> Result<Check<'s>> {
-    // TODO: check types in context?
-    let mut lc = rule.ctx.iter().map(STerm::from).collect();
+    let mut lc = LCtx::default();
+    for arg in rule.ctx.iter().map(STerm::from) {
+        lc.push_of_type(gc, arg)?;
+    }
 
     Ok(Check {
         tm: rule.rhs,
@@ -111,5 +114,22 @@ impl<'s> Check<'s> {
         } else {
             Err(Error::Unconvertible)
         }
+    }
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn rewrite_rejects_ill_formed_local_context() {
+        let rule = crate::Rule {
+            ctx: alloc::vec![LTerm::Type],
+            lhs: LTerm::Var(0),
+            rhs: LTerm::Var(0),
+        };
+
+        assert!(matches!(rewrite(rule, &GCtx::new()), Err(Error::BindNoType)));
     }
 }
