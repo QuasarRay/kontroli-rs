@@ -1,0 +1,108 @@
+name: HOL4 metatheory
+on:
+  push:
+    branches:
+      - 'proof/**'
+  pull_request:
+    paths:
+      - 'formal/hol4/**'
+      - '.mcp.json'
+      - 'AGENTS.md'
+      - '.github/workflows/hol4.yml'
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  hol4:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      HOL4_SHA: "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
+      MCP_SHA: "5a8b59147059d581d510176c3405eb24d561c178"
+      AEGIS_SHA: "065e6c8357221999b3217a9607648d4fe46ac749"
+      HOLDIR: /tmp/HOL
+      HOL4_TACTICTOE_CACHE: ${{ github.workspace }}/.aegis/tactictoe-cache
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+
+      - name: Restore TacticToe knowledge
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .aegis/tactictoe-cache
+          key: kontroli-tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-${{ github.run_id }}
+          restore-keys: |
+            kontroli-tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-
+
+      - name: Install prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y polyml libpolyml-dev git python3-pip
+
+      - name: Build pinned HOL4
+        run: |
+          git clone https://github.com/HOL-Theorem-Prover/HOL.git "$HOLDIR"
+          git -C "$HOLDIR" checkout --detach "$HOL4_SHA"
+          cd "$HOLDIR"
+          poly_archive="$(find /usr/lib -name libpolymain.a -print -quit)"
+          test -n "$poly_archive"
+          poly_dir="$(dirname "$poly_archive")"
+          printf 'val polymllibdir = "%s";\n' "$poly_dir" > tools-poly/poly-includes.ML
+          poly --script tools/smart-configure.sml
+          bin/build --seq tools/sequences/core-theories -j2
+
+      - name: Install pinned hol4-mcp and Aegis
+        run: |
+          python3 -m pip install --break-system-packages "git+https://github.com/HOL-Theorem-Prover/hol4-mcp.git@$MCP_SHA"
+          git clone https://github.com/QuasarRay/Aegis.git /tmp/Aegis
+          git -C /tmp/Aegis checkout --detach "$AEGIS_SHA"
+
+      - name: Run Aegis direct HOL4 acceptance gate
+        env:
+          PYTHONPATH: /tmp/Aegis/infra
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from agentinfra.hol4 import holmake, mcp_stdio_config, mcp_smoke
+          root = Path.cwd()
+          cfg = mcp_stdio_config(root)
+          mcp = mcp_smoke(root, timeout=30)
+          result = holmake(root, "formal/hol4", timeout=1200)
+          out = root / ".aegis/hol4-evidence.json"
+          out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps({"mcp_config": cfg, "mcp_smoke": mcp, "holmake": result}, indent=2) + "\n")
+          if result["status"] != "CHECKED":
+              raise SystemExit(1)
+          PY
+
+      - name: Record current theory for TacticToe
+        run: |
+          if [[ -f formal/hol4/TACTICTOE_ROOT ]]; then
+            theory="$(tr -d '[:space:]' < formal/hol4/TACTICTOE_ROOT)"
+          else
+            theory="KontroliBase"
+          fi
+          test -n "$theory"
+          bash /tmp/Aegis/scripts/record_tactictoe.sh "$theory" formal/hol4
+
+      - name: Save updated TacticToe knowledge
+        if: success()
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830
+        with:
+          path: .aegis/tactictoe-cache
+          key: kontroli-tactictoe-${{ runner.os }}-${{ env.HOL4_SHA }}-${{ github.run_id }}
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: hol4-evidence
+          path: |
+            .aegis/hol4-evidence.json
+            .aegis/tactictoe-cache/ttt_tacdata/MANIFEST
+          include-hidden-files: true

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "hol4": {
+      "command": "hol4-mcp",
+      "args": [
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "HOLDIR": "${env:HOLDIR}",
+        "HOL4_TACTICTOE_CACHE": "${workspaceFolder}/.aegis/tactictoe-cache"
+      }
+    }
+  }
+}
