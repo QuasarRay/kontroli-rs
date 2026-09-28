@@ -1,0 +1,43 @@
+name: Aeneas HOL4 extraction
+on:
+  push:
+    branches:
+      - 'proof/05-aeneas-hol4-extraction'
+  pull_request:
+    paths:
+      - 'kontroli/**'
+      - 'dedukti-parse/**'
+      - 'formal/aeneas/**'
+      - 'formal/hol4/toolchain.json'
+      - 'scripts/qualify_aeneas_hol4.sh'
+      - '.github/workflows/aeneas-hol4.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  extract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Install Charon Rust toolchain
+        run: |
+          rustup toolchain install nightly-2026-09-17 --profile minimal             --component rustc-dev --component rust-src --component llvm-tools
+      - name: Qualify Rust to HOL4 extraction
+        id: qualification
+        continue-on-error: true
+        run: bash scripts/qualify_aeneas_hol4.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: aeneas-hol4-qualification
+          path: .aegis/aeneas
+          include-hidden-files: true
+      - name: Enforce extraction qualification
+        if: steps.qualification.outcome != 'success'
+        run: |
+          echo "Aeneas HOL4 extraction is not yet qualified; inspect the uploaded diagnostics."
+          exit 1
