@@ -19,7 +19,7 @@ jobs:
     env:
       HOL4_SHA: "40dd5b03de658f4bd9e3f4225fb0f1602ac90467"
       MCP_SHA: "5a8b59147059d581d510176c3405eb24d561c178"
-      AEGIS_SHA: "b8ce324559f0d638bc5c5776720adcd29db96cf6"
+      AEGIS_SHA: "065e6c8357221999b3217a9607648d4fe46ac749"
       HOLDIR: /tmp/HOL
       HOL4_TACTICTOE_CACHE: ${{ github.workspace }}/.aegis/tactictoe-cache
     steps:
