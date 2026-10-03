@@ -26,3 +26,19 @@ hand-written function.
 The first implementation proofs should target the smallest directly translated
 pieces (`subst.rs`, term constructors, and local-context/index logic) before the
 lazy WHNF engine.
+
+
+## Generated HOL4 interface manifest
+
+Each successful extraction scope now emits `symbols.json` beside the generated
+HOL4 files. The manifest records:
+
+- generated `new_theory` names;
+- `*_def` definition identifiers;
+- opaque/external constants declared by the backend;
+- the subset of definitions whose names contain `_fwd`.
+
+The manifest is deterministic and is discovery metadata only. It is used by
+later refinement proofs to bind theorem scripts to the exact Aeneas output
+instead of guessing Rust-to-HOL4 names. It is **not** itself verification
+evidence.
