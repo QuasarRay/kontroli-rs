@@ -184,4 +184,22 @@ Proof
       ])
 QED
 
+
+Theorem has_type_append_suffix:
+  !Sigma R G H t A.
+    signature_wf Sigma R /\
+    rewrite_lift_closed R /\
+    has_type Sigma R G t A ==>
+    has_type Sigma R (G ++ H)
+      (lift (LENGTH H) 0 t)
+      (lift (LENGTH H) 0 A)
+Proof
+  rpt gen_tac >>
+  Induct_on `H` using SNOC_INDUCT
+  >- simp[]
+  >- (rpt strip_tac >>
+      fs[SNOC_APPEND, APPEND_ASSOC, lift_compose, ADD1] >>
+      metis_tac[has_type_insert])
+QED
+
 val _ = export_theory();

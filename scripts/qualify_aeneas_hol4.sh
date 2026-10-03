@@ -69,6 +69,12 @@ run_scope() {
       "$tool/aeneas" -backend hol4 "$llbc" -dest "$generated" \
         >"$out/aeneas.log" 2>&1
       aeneas_status=$?
+      if [[ $aeneas_status -eq 0 ]]; then
+        python3 "$root/scripts/aeneas_hol4_manifest.py" \
+          "$generated" "$out/symbols.json" >"$out/manifest.log" 2>&1
+      else
+        printf 'Skipped: Aeneas HOL4 extraction failed\n' >"$out/manifest.log"
+      fi
     else
       printf 'Charon failed or emitted no LLBC (status=%s)\n' "$charon_status" >"$out/aeneas.log"
     fi
@@ -92,6 +98,7 @@ data = {
       for x in (p.parent / "hol4-generated").glob("**/*")
       if x.is_file()
   ),
+  "symbol_manifest": "symbols.json" if (p.parent / "symbols.json").is_file() else None,
 }
 p.write_text(json.dumps(data, indent=2) + "\n")
 print(json.dumps(data, indent=2))
