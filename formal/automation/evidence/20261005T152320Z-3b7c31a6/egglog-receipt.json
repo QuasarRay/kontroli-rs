@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "status": "candidate",
+  "egglog": "/workspace/scratch/c292b11e437a/egglog/target/release/egglog",
+  "rule_count": 1,
+  "claim": "search hint only; HOL4 kernel replay required"
+}

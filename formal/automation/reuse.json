@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+  "hol_tools_commit": "d68957da16875ce6997ab48245f14b2267708007",
+  "metarocq_commit": "4329ddedd3bd2e97402df99d8b9ff29ec6712db7",
+  "egglog_commit": "4821547da08c1a8e5a2f530625f1648f13b058a3",
+  "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+  "rust_analyzer": {
+    "commit": "b0917ad46843fd9e1d9ad39e38df172df73819ef",
+    "aeneas_commit": "557eff83ecef5083b98a52a94ca7fae63d6c1dab",
+    "charon_commit": "c8f15d7d658c86a95658f71ad99cddd4be002e04",
+    "status": "adapter inspected; differs from Kontroli's existing Aeneas release; no compatible extraction claimed"
+  },
+  "reused_components": [
+    "QuasarRay/HOL:tools/cakeml-hol4/egglog-bridge/src/main.rs",
+    "QuasarRay/HOL:tools/cakeml-hol4/formal/Hol4ProofSearchLib.sml",
+    "QuasarRay/HOL:tools/cakeml-hol4/formal/Hol4ProofSearchLib.sig",
+    "QuasarRay/MetaRocq-rs:.agents/infra/agentinfra/process.py",
+    "QuasarRay/MetaRocq-rs:.agents/infra/agentinfra/hol4.py"
+  ],
+  "claim": "reuse and tool identities; no implementation or binary correctness theorem"
+}

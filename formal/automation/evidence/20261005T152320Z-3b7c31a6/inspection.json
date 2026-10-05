@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "theory": "KontroliProofAutomation",
+  "theorems": [
+    "egglog_lift_subst",
+    "lift_index_bound_z3",
+    "substitution_index_cancel_z3",
+    "application_conversion_tactictoe"
+  ],
+  "exact_goals_checked": true,
+  "hypotheses": 0,
+  "non_disk_oracles": 0,
+  "local_axioms": 0,
+  "claim": "scoped proof automation; whole-kernel and binary refinement remain open"
+}

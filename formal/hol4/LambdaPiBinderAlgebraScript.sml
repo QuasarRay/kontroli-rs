@@ -10,8 +10,8 @@ Theorem lift_compose:
   !t d1 d2 c.
     lift d1 c (lift d2 c t) = lift (d2 + d1) c t
 Proof
-  Induct >> simp[ADD_ASSOC]
-  >- (rpt gen_tac >> Cases_on `n < c` >> simp[] >> numLib.ARITH_TAC)
+  Induct >> simp[]
+  >- (rpt gen_tac >> Cases_on `n < c` >> simp[])
 QED
 
 (* Nipkow-style cancellation: inserting a fresh slot and substituting at the
@@ -84,9 +84,9 @@ Theorem lift_fusion:
     lift extra (base + gap) (lift prefix base t) =
     lift (prefix + extra) base t
 Proof
-  Induct >> simp[ADD_ASSOC, ADD_COMM, ADD_LEFT_COMM]
-  >- (rpt gen_tac >> strip_tac >>
-      Cases_on `n < base` >> simp[] >> numLib.ARITH_TAC)
+  Induct >> simp[] >> rpt strip_tac >>
+  TRY (Cases_on `n < base` >> simp[] >> numLib.ARITH_TAC) >>
+  metis_tac[ADD_ASSOC, ADD_COMM]
 QED
 
 Theorem lift_prefix_fusion:
@@ -105,7 +105,7 @@ Theorem subst_lift_commute:
     subst u c (lift amount base t) =
     lift amount base (subst u (c - amount) t)
 Proof
-  Induct >> simp[ADD_ASSOC, ADD_COMM, ADD_LEFT_COMM]
+  Induct >> simp[]
   >- (rpt gen_tac >> strip_tac >>
       Cases_on `n < base` >> simp[] >- numLib.ARITH_TAC >>
       Cases_on `n < c - amount` >> simp[] >- numLib.ARITH_TAC >>
@@ -138,7 +138,7 @@ Theorem subst_subst_ge:
     subst u c (subst a k t) =
     subst (subst u (c - k) a) k (subst u (c + 1) t)
 Proof
-  Induct >> simp[ADD_ASSOC, ADD_COMM, ADD_LEFT_COMM]
+  Induct >> simp[]
   >- (rpt gen_tac >> strip_tac >>
       Cases_on `n < k` >> simp[] >- numLib.ARITH_TAC >>
       Cases_on `n = k` >> simp[subst_lift_commute] >- numLib.ARITH_TAC >>
