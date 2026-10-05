@@ -1,6 +1,6 @@
 Theory LambdaPiSubstLookup
 Ancestors
-  LambdaPiWeakening LambdaPiSubstitution
+  LambdaPiWeakening LambdaPiContextInsertion LambdaPiScoping LambdaPiBinderAlgebra LambdaPiTyping LambdaPiReduction LambdaPiSyntax KontroliBase arithmetic string relation list rich_list LambdaPiSubstitution
 Libs
   boolSimps numLib
 

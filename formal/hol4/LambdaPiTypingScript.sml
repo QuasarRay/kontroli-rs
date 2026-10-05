@@ -1,6 +1,6 @@
 Theory LambdaPiTyping
 Ancestors
-  LambdaPiReduction list
+  LambdaPiReduction LambdaPiSyntax KontroliBase arithmetic string relation list
 Libs
   boolSimps
 

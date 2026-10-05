@@ -1,6 +1,6 @@
 Theory LambdaPiScoping
 Ancestors
-  LambdaPiBinderAlgebra
+  LambdaPiBinderAlgebra LambdaPiTyping LambdaPiReduction LambdaPiSyntax KontroliBase arithmetic string relation list rich_list
 Libs
   boolSimps numLib
 

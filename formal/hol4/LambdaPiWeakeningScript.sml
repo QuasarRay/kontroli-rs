@@ -1,6 +1,6 @@
 Theory LambdaPiWeakening
 Ancestors
-  LambdaPiContextInsertion
+  LambdaPiContextInsertion LambdaPiScoping LambdaPiBinderAlgebra LambdaPiTyping LambdaPiReduction LambdaPiSyntax KontroliBase arithmetic string relation list rich_list
 Libs
   boolSimps numLib
 

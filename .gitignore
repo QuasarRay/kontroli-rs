@@ -4,3 +4,14 @@
 
 # Local proof-agent runtime state. Proof sources/evidence under formal/ stay tracked.
 /.aegis/
+
+# Replayed HOL4 objects and diagnostic heaps are reproducible local state.
+**/.hol/
+**/*.dumpedheap
+**/*Theory.sml
+**/*Theory.sig
+**/*Theory.dat
+**/*Theory.uo
+**/*Theory.ui
+**/*Script.uo
+**/*Script.ui
