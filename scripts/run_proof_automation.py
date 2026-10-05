@@ -66,7 +66,9 @@ def main():
         raise ValueError("HOL4 pin differs from the Kontroli automation lock")
     refs = {s: git(args.hol_tools, "show", lock["hol_tools_commit"] + ":" + s)
             for s in (BRIDGE, LIBRARY + ".sml", LIBRARY + ".sig")}
-    paths = sorted((ROOT / "formal/hol4").glob("*Script.sml")) + [
+    scripts = sorted((ROOT / "formal/hol4").glob("*Script.sml")) + sorted(
+        (ROOT / "formal/automation/hol4").glob("*Script.sml"))
+    paths = scripts + [
         ROOT / "formal/automation/reuse.json",
         ROOT / "formal/automation/binder-rewrites.tsv", Path(__file__)]
     inputs = {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in paths}
@@ -108,7 +110,7 @@ def main():
             raise RuntimeError(f"{name} failed; see preserved diagnostics")
         return result
     try:
-        for path in (ROOT / "formal/hol4").glob("*Script.sml"):
+        for path in scripts:
             shutil.copyfile(path, stage / path.name)
         for path, data in refs.items():
             if path != BRIDGE:
