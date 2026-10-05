@@ -105,14 +105,17 @@ Theorem subst_lift_commute:
     subst u c (lift amount base t) =
     lift amount base (subst u (c - amount) t)
 Proof
-  Induct >> simp[]
-  >- (rpt gen_tac >> strip_tac >>
-      Cases_on `n < base` >> simp[] >- numLib.ARITH_TAC >>
-      Cases_on `n < c - amount` >> simp[] >- numLib.ARITH_TAC >>
-      Cases_on `n = c - amount` >> simp[] >-
-        (`base <= c - amount` by numLib.ARITH_TAC >>
-         simp[lift_prefix_fusion] >> numLib.ARITH_TAC) >>
-      simp[] >> numLib.ARITH_TAC)
+  Induct >> simp[] >> rpt gen_tac >> strip_tac >>
+  Cases_on `n < base`
+  >- (`n < c /\ n < c - amount` by numLib.DECIDE_TAC >> simp[]) >>
+  Cases_on `n < c - amount`
+  >- (`n + amount < c` by numLib.DECIDE_TAC >> simp[]) >>
+  Cases_on `n = c - amount`
+  >- (`n + amount = c /\ base <= c - amount /\
+       (c - amount) + amount = c` by numLib.DECIDE_TAC >>
+      simp[lift_prefix_fusion]) >>
+  `c < n + amount /\ base <= n - 1 /\ 0 < n` by numLib.DECIDE_TAC >>
+  simp[] >> numLib.DECIDE_TAC
 QED
 
 (* Substituting below a fully lifted prefix simply removes one of the
@@ -138,13 +141,16 @@ Theorem subst_subst_ge:
     subst u c (subst a k t) =
     subst (subst u (c - k) a) k (subst u (c + 1) t)
 Proof
-  Induct >> simp[]
-  >- (rpt gen_tac >> strip_tac >>
-      Cases_on `n < k` >> simp[] >- numLib.ARITH_TAC >>
-      Cases_on `n = k` >> simp[subst_lift_commute] >- numLib.ARITH_TAC >>
-      Cases_on `n < c + 1` >> simp[] >- numLib.ARITH_TAC >>
-      Cases_on `n = c + 1` >> simp[subst_lift_prefix_drop] >>
-      numLib.ARITH_TAC)
+  Induct >> simp[] >> rpt gen_tac >> strip_tac >>
+  Cases_on `n < k`
+  >- (`n < c /\ n < c + 1` by numLib.DECIDE_TAC >> simp[]) >>
+  Cases_on `n = k`
+  >- simp[subst_lift_commute] >>
+  Cases_on `n < c + 1`
+  >- (`n - 1 < c` by numLib.DECIDE_TAC >> simp[]) >>
+  Cases_on `n = c + 1`
+  >- (`n - 1 = c` by numLib.DECIDE_TAC >> simp[subst_lift_prefix_drop]) >>
+  `c < n - 1 /\ k < n - 1` by numLib.DECIDE_TAC >> simp[]
 QED
 
 Theorem subst_subst0:
@@ -163,8 +169,13 @@ Theorem red_subst_from_rewrite_closed:
     rewrite_substitution_closed R /\ red R t v ==>
     !u c. red R (subst u c t) (subst u c v)
 Proof
+  gen_tac >>
+  `rewrite_substitution_closed R ==>
+   !t v. red R t v ==> !u c. red R (subst u c t) (subst u c v)`
+    suffices_by metis_tac[] >>
+  strip_tac >>
   ho_match_mp_tac red_ind >>
-  rw[rewrite_substitution_closed_def] >>
+  rw[] >> fs[rewrite_substitution_closed_def] >>
   simp[subst_subst0] >>
   metis_tac[red_rules]
 QED
@@ -182,8 +193,9 @@ Theorem convertible_subst_closed:
     !t v. convertible R t v ==>
       !u c. convertible R (subst u c t) (subst u c v)
 Proof
-  rw[red_substitution_closed_def, convertible_def] >>
+  gen_tac >> strip_tac >> REWRITE_TAC[convertible_def] >>
   ho_match_mp_tac EQC_INDUCTION >>
+  fs[red_substitution_closed_def] >>
   metis_tac[EQC_R, EQC_REFL, EQC_SYM, EQC_TRANS]
 QED
 

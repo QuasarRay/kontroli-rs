@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/workspace/scratch/c292b11e437a/runtime/aeneas/aeneas",
+    "-backend",
+    "hol4",
+    "-sequential",
+    "-no-progress-bar",
+    "-print-error-diagnostics",
+    "-max-error-spans",
+    "3",
+    "/workspace/scratch/c292b11e437a/runtime/extraction/monomorphize-mut/kontroli.llbc",
+    "-dest",
+    "/workspace/scratch/c292b11e437a/runtime/extraction/monomorphize-mut/hol4-generated"
+  ],
+  "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs",
+  "returncode": 2,
+  "stdout_sha256": "adf8f7200b9bff28ef6f349fdd0982433e28c5e6c319819d556eea9951a39833",
+  "stderr_sha256": "2afb170df0ef39a43523ce9c30c175440a8dae687a523c42bbb50c2421de53f1",
+  "stdout_bytes": 30338,
+  "stderr_bytes": 3238,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "timed_out": false,
+  "started_at": "2026-10-05T15:54:26.107586+00:00",
+  "finished_at": "2026-10-05T15:54:27.175371+00:00",
+  "duration_seconds": 1.0667213970000375
+}

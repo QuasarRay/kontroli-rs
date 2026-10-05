@@ -1,0 +1,19 @@
+{
+  "schema": 3,
+  "claim": "Extraction qualification, not an implementation correctness proof",
+  "install_status": 0,
+  "full_crate_qualified": false,
+  "subst_slice_qualified": false,
+  "required_checkpoint": "subst-slice",
+  "scope": "all",
+  "sysroot": "default",
+  "archive_sha256": "605bb2c4abcc7678642669ec8db94dc88fba0aa082b04d5fdafb0cc83fae56cd",
+  "tool_sha256": {
+    "charon-driver": "cf87c8127ffba7b925001b660202f55977c004e31475c34eb9c318b96861de59",
+    "rust-toolchain": "60d242314032dfb524f52d9c31397a64dcf6697cdb20a08c29c004fef4059306",
+    "charon": "542d064ee5ddbceefdabf1cc4ce33050d4bf1b6f1df93a5843f0e6bb49183542",
+    "aeneas": "03941ab6e8484f09eb7005f84799bac92d80c404a83245dda00dda7b0083dcaa"
+  },
+  "inputs_unchanged": true,
+  "skip_reason": "full extraction skipped after failed prerequisite slice"
+}

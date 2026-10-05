@@ -1,0 +1,47 @@
+   Compiling proc-macro2 v1.0.103
+   Compiling quote v1.0.23
+   Compiling syn v1.0.107
+   Compiling serde_derive v1.0.152
+   Compiling logos-derive v0.12.1
+   Compiling logos v0.12.1
+   Compiling dedukti-parse v0.3.1 (/workspace/scratch/c292b11e437a/kontroli-rs/dedukti-parse)
+   Compiling kontroli v0.4.0 (/workspace/scratch/c292b11e437a/kontroli-rs/kontroli)
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> kontroli/src/kernel/reduce.rs:147:21
+    |
+147 |     fn borrow_state(&self) -> Ref<State<'s, 't>> {
+    |                     ^^^^^     ------------------ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+147 |     fn borrow_state(&self) -> Ref<'_, State<'s, 't>> {
+    |                                   +++
+
+   Compiling serde v1.0.152
+warning: `kontroli` (lib) generated 1 warning
+   Compiling serde_json v1.0.91
+   Compiling ciborium v0.2.0
+   Compiling tinytemplate v1.2.1
+   Compiling criterion v0.5.1
+warning: `kontroli` (lib test) generated 1 warning (1 duplicate)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.05s
+     Running unittests src/lib.rs (target/debug/deps/kontroli-67e3f875f88b1b6c)
+
+running 1 test
+test kernel::tests::rewrite_rejects_ill_formed_local_context ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests kontroli
+
+running 3 tests
+test kontroli/src/gctx.rs - gctx::GCtx<Sym,Pat,Tm>::new (line 42) ... ok
+test kontroli/src/symbol.rs - symbol::Owned (line 16) ... ok
+test kontroli/src/lib.rs - (line 35) ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.65s
+

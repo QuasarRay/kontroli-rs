@@ -1,11 +1,13 @@
 # Incremental Aeneas extraction
 
-Aeneas/Charon qualification now emits two independent evidence scopes:
+Aeneas/Charon qualification supports two evidence scopes:
 
 1. **full** — the entire `kontroli` crate;
 2. **subst-slice** — the call graph rooted at `crate::kernel::subst`.
 
 Both use an explicit `--dest-file` and separate HOL4 output directories.
+The default run tries the substitution slice first and skips the whole crate
+after a failed slice. `AENEAS_SCOPE=full` can request a full diagnostic run.
 The substitution slice is the required checkpoint for this PR so that
 refinement can begin on de Bruijn shift/substitution even if the lazy WHNF
 engine or third-party containers prevent whole-crate translation.

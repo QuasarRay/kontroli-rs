@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "/workspace/scratch/c292b11e437a/runtime/aeneas/charon",
+    "cargo",
+    "--preset=aeneas",
+    "--sysroot=default",
+    "--monomorphize-mut=all",
+    "--dest-file=/workspace/scratch/c292b11e437a/runtime/extraction/monomorphize-mut/kontroli.llbc",
+    "--start-from=crate::kernel::subst",
+    "--",
+    "--locked"
+  ],
+  "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/kontroli",
+  "returncode": 0,
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e446ab266e4fa5ba25e5f87e360279e53bf17d4f7bc17662824e2fc000b82b6f",
+  "stdout_bytes": 0,
+  "stderr_bytes": 10717,
+  "stdout_truncated": false,
+  "stderr_truncated": false,
+  "timed_out": false,
+  "started_at": "2026-10-05T15:54:24.900487+00:00",
+  "finished_at": "2026-10-05T15:54:26.106825+00:00",
+  "duration_seconds": 1.2059131980004167,
+  "claim": "Extraction observation; no Rust or binary refinement theorem",
+  "cargo_lock_sha256": "01a7724f39833ecf4e46e7db588102ec3c21943b2d5c8112f9c818d365a52dde"
+}

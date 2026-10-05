@@ -1,0 +1,211 @@
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+thread 'main' panicked at src/dist/component/transaction.rs:97:9:
+assertion failed: relpath.is_relative()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at src/currentprocess.rs:142:17:
+No process instance
+stack backtrace:
+   0:     0x55b0104fcc24 - <unknown>
+   1:     0x55b010209f53 - <unknown>
+   2:     0x55b0104f2764 - <unknown>
+   3:     0x55b0104fc9ca - <unknown>
+   4:     0x55b0105231a3 - <unknown>
+   5:     0x55b010522ccc - <unknown>
+   6:     0x55b0105239fd - <unknown>
+   7:     0x55b0104fd19c - <unknown>
+   8:     0x55b0104fd129 - <unknown>
+   9:     0x55b010523504 - <unknown>
+  10:     0x55b01014d075 - <unknown>
+  11:     0x55b0103ee5c9 - <unknown>
+  12:     0x55b0103ea573 - <unknown>
+  13:     0x55b0104917d9 - <unknown>
+  14:     0x55b01048ef4f - <unknown>
+  15:     0x55b01041cab2 - <unknown>
+  16:     0x55b01046bb60 - <unknown>
+  17:     0x55b01043d8f9 - <unknown>
+  18:     0x55b01043df46 - <unknown>
+  19:     0x55b010439b16 - <unknown>
+  20:     0x55b010432548 - <unknown>
+  21:     0x55b0104296c3 - <unknown>
+  22:     0x55b010425605 - <unknown>
+  23:     0x55b010422fe5 - <unknown>
+  24:     0x55b0103f5590 - <unknown>
+  25:     0x55b0103ef2bd - <unknown>
+  26:     0x55b01017977e - <unknown>
+  27:     0x55b010176b76 - <unknown>
+  28:     0x55b0101770b8 - <unknown>
+  29:     0x7fd2d28cd1ca - <unknown>
+  30:     0x7fd2d28cd28b - __libc_start_main
+  31:     0x55b010176aa5 - <unknown>
+  32:                0x0 - <unknown>
+thread 'main' panicked at library/core/src/panicking.rs:144:5:
+panic in a destructor during cleanup
+thread caused non-unwinding panic. aborting.
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+thread 'main' panicked at src/dist/component/transaction.rs:97:9:
+assertion failed: relpath.is_relative()
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+thread 'main' panicked at src/currentprocess.rs:142:17:
+No process instance
+stack backtrace:
+   0:     0x55da57122c24 - <unknown>
+   1:     0x55da56e2ff53 - <unknown>
+   2:     0x55da57118764 - <unknown>
+   3:     0x55da571229ca - <unknown>
+   4:     0x55da571491a3 - <unknown>
+   5:     0x55da57148ccc - <unknown>
+   6:     0x55da571499fd - <unknown>
+   7:     0x55da5712319c - <unknown>
+   8:     0x55da57123129 - <unknown>
+   9:     0x55da57149504 - <unknown>
+  10:     0x55da56d73075 - <unknown>
+  11:     0x55da570145c9 - <unknown>
+  12:     0x55da57010573 - <unknown>
+  13:     0x55da570b77d9 - <unknown>
+  14:     0x55da570b4f4f - <unknown>
+  15:     0x55da57042ab2 - <unknown>
+  16:     0x55da57091b60 - <unknown>
+  17:     0x55da570638f9 - <unknown>
+  18:     0x55da57063f46 - <unknown>
+  19:     0x55da5705fb16 - <unknown>
+  20:     0x55da57058548 - <unknown>
+  21:     0x55da5704f6c3 - <unknown>
+  22:     0x55da5704b605 - <unknown>
+  23:     0x55da57048fe5 - <unknown>
+  24:     0x55da5701b590 - <unknown>
+  25:     0x55da570152bd - <unknown>
+  26:     0x55da56d9f77e - <unknown>
+  27:     0x55da56d9cb76 - <unknown>
+  28:     0x55da56d9d0b8 - <unknown>
+  29:     0x7f53a291f1ca - <unknown>
+  30:     0x7f53a291f28b - __libc_start_main
+  31:     0x55da56d9caa5 - <unknown>
+  32:                0x0 - <unknown>
+thread 'main' panicked at library/core/src/panicking.rs:144:5:
+panic in a destructor during cleanup
+thread caused non-unwinding panic. aborting.
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+info: removing previous version of component 'rustc'
+warning: during uninstall component rustc was not found
+info: removing previous version of component 'cargo'
+warning: during uninstall component cargo was not found
+info: removing previous version of component 'rust-std'
+warning: during uninstall component rust-std was not found
+info: removing previous version of component 'rust-docs'
+warning: during uninstall component rust-docs was not found
+info: removing previous version of component 'rustfmt'
+warning: during uninstall component rustfmt was not found
+info: removing previous version of component 'clippy'
+warning: during uninstall component clippy was not found
+info: installing component 'rustc'
+info: rolling back changes
+error: failed to install component: 'rustc-x86_64-unknown-linux-gnu', detected conflict: 'bin/rust-gdb'
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+info: removing previous version of component 'rustc'
+warning: during uninstall component rustc was not found
+info: removing previous version of component 'cargo'
+warning: during uninstall component cargo was not found
+info: removing previous version of component 'rust-std'
+warning: during uninstall component rust-std was not found
+info: removing previous version of component 'rust-docs'
+warning: during uninstall component rust-docs was not found
+info: removing previous version of component 'rustfmt'
+warning: during uninstall component rustfmt was not found
+info: removing previous version of component 'clippy'
+warning: during uninstall component clippy was not found
+info: installing component 'rustc'
+info: rolling back changes
+error: failed to install component: 'rustc-x86_64-unknown-linux-gnu', detected conflict: 'bin/rust-gdb'
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+info: removing previous version of component 'rustc'
+warning: during uninstall component rustc was not found
+info: removing previous version of component 'cargo'
+warning: during uninstall component cargo was not found
+info: removing previous version of component 'rust-std'
+warning: during uninstall component rust-std was not found
+info: removing previous version of component 'rust-docs'
+warning: during uninstall component rust-docs was not found
+info: removing previous version of component 'rustfmt'
+warning: during uninstall component rustfmt was not found
+info: removing previous version of component 'clippy'
+warning: during uninstall component clippy was not found
+info: installing component 'rustc'
+info: rolling back changes
+error: failed to install component: 'rustc-x86_64-unknown-linux-gnu', detected conflict: 'bin/rust-gdb'
+warning: `cargo miri setup` failed for target `x86_64-unknown-linux-gnu`; falling back to rustc's default sysroot: info: syncing channel updates for 'nightly-2026-09-17-x86_64-unknown-linux-gnu'
+info: latest update on 2026-09-17, rust version 1.100.0-nightly (923c95cdf 2026-09-16)
+info: downloading component 'rustc'
+info: downloading component 'cargo'
+info: downloading component 'rust-std'
+info: downloading component 'rust-docs'
+info: downloading component 'rustfmt'
+info: downloading component 'clippy'
+info: removing previous version of component 'rustc'
+warning: during uninstall component rustc was not found
+info: removing previous version of component 'cargo'
+warning: during uninstall component cargo was not found
+info: removing previous version of component 'rust-std'
+warning: during uninstall component rust-std was not found
+info: removing previous version of component 'rust-docs'
+warning: during uninstall component rust-docs was not found
+info: removing previous version of component 'rustfmt'
+warning: during uninstall component rustfmt was not found
+info: removing previous version of component 'clippy'
+warning: during uninstall component clippy was not found
+info: installing component 'rustc'
+info: rolling back changes
+error: failed to install component: 'rustc-x86_64-unknown-linux-gnu', detected conflict: 'bin/rust-gdb'
+   Compiling dedukti-parse v0.3.1 (/workspace/scratch/c292b11e437a/kontroli-rs/dedukti-parse)
+   Compiling kontroli v0.4.0 (/workspace/scratch/c292b11e437a/kontroli-rs/kontroli)
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> kontroli/src/kernel/reduce.rs:147:21
+    |
+147 |     fn borrow_state(&self) -> Ref<State<'s, 't>> {
+    |                     ^^^^^     ^^^^^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+147 |     fn borrow_state(&self) -> Ref<'_, State<'s, 't>> {
+    |                                   +++
+
+warning: `kontroli` (lib) generated 1 warning (run `cargo fix --lib -p kontroli` to apply 1 suggestion)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.04s

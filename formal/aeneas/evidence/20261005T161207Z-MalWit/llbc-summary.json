@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "claim": "LLBC extraction observation; Aeneas failed and no generated model or refinement theorem exists",
+  "llbc_sha256": "1a949fe07974fee39f5ae13a322c8cde47f3af668725967ba0b81f2880ab3bf3",
+  "charon_version": "0.1.273",
+  "has_errors": false,
+  "sysroot": "default",
+  "start_from": [
+    "crate::kernel::subst"
+  ],
+  "function_count": 78,
+  "local_function_count": 26,
+  "opaque_function_count": 52,
+  "source_files_with_contents": 7,
+  "source_files_without_contents": 65,
+  "structured_function_count": 26
+}

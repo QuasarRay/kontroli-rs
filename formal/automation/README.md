@@ -4,12 +4,13 @@ The first objective is to make the existing HOL4 theories replay. Afterwards,
 the Rust implementation must be connected to those theories. The final objective
 is a theorem about the exact machine code. Each step needs its own proof.
 
-`run_proof_automation.py` currently checks four scoped lemmas. It does not certify
+`run_proof_automation.py` checks five automation lemmas and independently inspects
+five exact conclusions from the replayed binder-algebra theory. It does not certify
 the whole metatheory, Kontroli's Rust implementation, or its executable.
 
 1. The native Rust Egglog engine proposes existing HOL4 rewrite names.
-2. HOL4 replays those named rewrites for a lifting/substitution identity.
-3. `HolSmtLib.Z3_TAC` reconstructs two de Bruijn index arithmetic proofs.
+2. HOL4 replays those named rewrites for nested substitution/lift cancellation.
+3. `HolSmtLib.Z3_TAC` reconstructs three de Bruijn index arithmetic proofs.
 4. TacticToe proves application convertibility using checked reduction facts.
 5. The reused HOL proof inspector checks each exact conclusion, hypotheses,
    oracle tags and local axioms. Direct Holmake exports the resulting theory.
@@ -24,9 +25,11 @@ Egglog revision and MetaRocq/Aegis process and MCP adapters. Their code is read
 from the pinned Git objects and materialized in ignored local build directories.
 It is not copied into a second framework.
 
-Two small compatibility adaptations are recorded by before/after hashes:
+Three small adaptations are recorded by before/after hashes:
 seed the Egglog goal terms before saturation, and qualify `Term.term`/`Thm.thm`
-in the inherited library signature. Neither adaptation changes a HOL theorem.
+in the inherited library signature. The search dispatcher uses lazy fallbacks,
+so a successful rewrite proof does not also run SMT and TacticToe searches.
+These adaptations preserve the kernel acceptance check.
 
 ```sh
 export HOLDIR=/path/to/built/pinned/HOL
@@ -47,8 +50,11 @@ manual while this incremental stack is being repaired.
 
 ## Remaining proof boundaries
 
-The declarative metatheory still fails beyond the successfully replayed syntax,
-reduction and typing layers. The existing implementation-refinement contract
+The binder-algebra theory now replays through substitution composition and
+substitution closure of reduction and conversion. Its rewrite-closure premises
+remain explicit. The declarative metatheory still has unexported dependencies
+beyond the checked syntax, reduction, typing and binder layers.
+The existing implementation-refinement contract
 has open substitution, admission, WHNF, conversion and infer/check obligations.
 Its product-compatibility premise must also be discharged for a concrete rewrite
 system; ordinary rule typechecking does not establish it.
@@ -57,6 +63,19 @@ The rust-analyzer fork's Charon adapter was inspected. It delegates to a specifi
 Charon revision rather than independently defining Rust semantics. Its pinned
 Aeneas/Charon pair differs from Kontroli's existing release, so combining their
 outputs requires an explicit compatibility check.
+
+The existing Charon release now extracts the substitution slice after a minimal
+`proc-macro2` lockfile update. Aeneas still rejects mixed recursive function/trait
+groups and then fails translating signatures. Mutable-reference
+monomorphization was also tried and did not resolve this failure.
+
+`qualify_aeneas_hol4.sh` reuses a digest-checked archive and writes each run to a
+fresh directory. Steps are bounded; source hashes must stay unchanged. Full
+extraction is skipped after the prerequisite slice fails. Set `AENEAS_BUNDLE`
+to an existing release archive, `AENEAS_SCOPE` to `subst-slice`, `full`, or `all`,
+and `AENEAS_SYSROOT` to a sysroot path or `default`. The distributed default
+sysroot lacks some standard-library MIR bodies, so extraction cannot establish
+dependency correctness. Qualification receipts are observations only.
 
 For the binary boundary, seL4's relevant idea is translation validation: relate
 the actual compiler output to the already verified source semantics. The exact
