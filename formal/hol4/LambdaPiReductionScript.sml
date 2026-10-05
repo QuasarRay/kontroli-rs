@@ -1,6 +1,6 @@
 Theory LambdaPiReduction
 Ancestors
-  LambdaPiSyntax relation
+  LambdaPiSyntax KontroliBase arithmetic string relation
 Libs
   boolSimps
 
@@ -131,7 +131,7 @@ QED
 Theorem joinable_refl[simp]:
   !R t. joinable R t t
 Proof
-  simp[joinable_def]
+  rw[joinable_def] >> qexists_tac `t` >> simp[]
 QED
 
 Theorem joinable_sym:
@@ -147,10 +147,6 @@ Theorem joinable_trans_confluent:
     !x y z. joinable R x y /\ joinable R y z ==> joinable R x z
 Proof
   rw[confluent_def, joinable_def] >>
-  rename [`reduces R x a`, `reduces R y a`,
-          `reduces R y b`, `reduces R z b`] >>
-  `?c. reduces R a c /\ reduces R b c` by metis_tac[] >>
-  qexists_tac `c` >>
   metis_tac[reduces_trans]
 QED
 
@@ -167,7 +163,7 @@ Theorem convertible_implies_joinable_confluent:
   !R. confluent R ==>
     !t u. convertible R t u ==> joinable R t u
 Proof
-  rw[convertible_def] >>
+  gen_tac >> strip_tac >> REWRITE_TAC[convertible_def] >>
   ho_match_mp_tac EQC_INDUCTION >>
   metis_tac[red_implies_joinable, joinable_refl, joinable_sym,
             joinable_trans_confluent]

@@ -1,6 +1,6 @@
 Theory KontroliSurface
 Ancestors
-  LambdaPiTyping
+  LambdaPiTyping LambdaPiReduction LambdaPiSyntax KontroliBase arithmetic string relation list
 
 (* Surface terms model the user/kernel LTerm shape. Kind is internal to STerm,
    so it is intentionally absent here. Lambda annotations are optional exactly

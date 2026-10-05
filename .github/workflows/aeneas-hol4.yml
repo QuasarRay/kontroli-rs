@@ -1,16 +1,5 @@
 name: Aeneas HOL4 extraction
 on:
-  push:
-    branches:
-      - 'proof/05-aeneas-hol4-extraction'
-  pull_request:
-    paths:
-      - 'kontroli/**'
-      - 'dedukti-parse/**'
-      - 'formal/aeneas/**'
-      - 'formal/hol4/toolchain.json'
-      - 'scripts/qualify_aeneas_hol4.sh'
-      - '.github/workflows/aeneas-hol4.yml'
   workflow_dispatch:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.head.ref || github.ref }}
