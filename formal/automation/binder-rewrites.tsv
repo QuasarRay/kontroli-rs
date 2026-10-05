@@ -1,0 +1,2 @@
+# Named HOL4 theorem, Egglog encoding lhs, Egglog encoding rhs.
+LambdaPiSyntax.lift_zero	(App (Const "lift0") t)	t

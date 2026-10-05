@@ -1,0 +1,226 @@
+Holmake: Scanning $(HOLDIR)/src/hol88
+Holmake: Scanning $(HOLDIR)/src/TeX
+Holmake: Scanning $(HOLDIR)/src/bag
+Holmake: Scanning $(HOLDIR)/src/sort
+Holmake: Scanning $(HOLDIR)/src/string
+Holmake: Scanning $(HOLDIR)/src/n-bit
+Holmake: Scanning $(HOLDIR)/src/res_quan/src
+Holmake: Scanning $(HOLDIR)/src/finite_maps
+Holmake: Scanning $(HOLDIR)/src/integer
+Holmake: Scanning $(HOLDIR)/src/rational
+Holmake: Scanning $(HOLDIR)/src/transfer
+Holmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories
+Holmake: Scanning $(HOLDIR)/src/algebra/base
+Holmake: Scanning $(HOLDIR)/src/algebra/construction
+Holmake: Scanning $(HOLDIR)/src/algebra
+Holmake: Scanning $(HOLDIR)/src/real
+Holmake: Scanning $(HOLDIR)/src/real/analysis
+Holmake: Scanning $(HOLDIR)/src/HolSmt
+Holmake: Scanning $(HOLDIR)/src/tactictoe/src
+Holmake: Scanned 20 directories
+Holmake: Building 5 theory files
+Holmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/KontroliBaseScript.uo to produce theory-builder executable
+<<HOL message: Created theory "KontroliBase">>
+Saved theorem _______ "num2ksort_ksort2num"
+Saved theorem _______ "ksort2num_num2ksort"
+Saved theorem _______ "num2ksort_11"
+Saved theorem _______ "ksort2num_11"
+Saved theorem _______ "num2ksort_ONTO"
+Saved theorem _______ "ksort2num_ONTO"
+Saved theorem _______ "num2ksort_thm"
+Saved theorem _______ "ksort2num_thm"
+Saved theorem _______ "ksort_EQ_ksort"
+Saved theorem _______ "ksort_case_def"
+Saved theorem _______ "datatype_ksort"
+Saved theorem _______ "ksort_distinct"
+Saved theorem _______ "ksort_nchotomy"
+Saved theorem _______ "ksort_Axiom"
+Saved theorem _______ "ksort_induction"
+Saved theorem _______ "ksort_case_cong"
+Saved theorem _______ "ksort_case_eq"
+<<HOL message: Defined type: "ksort">>
+Saved theorem _______ "KType_neq_KKind"
+Saved theorem _______ "ksort_cases"
+Exporting theory "KontroliBase" ... done.
+Theory "KontroliBase" took 0.13092s to build
+Holmake: [1/5] KontroliBase
+Holmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiSyntaxScript.uo to produce theory-builder executable
+<<HOL message: Created theory "LambdaPiSyntax">>
+Saved theorem _______ "datatype_term"
+Saved theorem _______ "term_11"
+Saved theorem _______ "term_distinct"
+Saved theorem _______ "term_nchotomy"
+Saved theorem _______ "term_Axiom"
+Saved theorem _______ "term_induction"
+Saved theorem _______ "term_case_cong"
+Saved theorem _______ "term_case_eq"
+<<HOL message: Defined type: "term">>
+Saved definition ____ "lift_def"
+Saved definition ____ "subst_def"
+Saved definition ____ "subst0_def"
+Saved theorem _______ "lift_zero"
+Saved theorem _______ "lift_var_below"
+Saved theorem _______ "lift_var_at_or_above"
+Saved theorem _______ "subst_var_same"
+Saved theorem _______ "subst_var_below"
+Saved theorem _______ "subst_var_above"
+Saved theorem _______ "subst0_var0"
+Exporting theory "LambdaPiSyntax" ... done.
+Theory "LambdaPiSyntax" took 0.38560s to build
+Holmake: [2/5] LambdaPiSyntax
+Holmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiReductionScript.uo to produce theory-builder executable
+<<HOL message: Created theory "LambdaPiReduction">>
+<<HOL message: Treating "R" as schematic variable>>
+<<HOL message: Generalising variables "A", "b", "u" in clause #0 (11:2-11:41)>>
+<<HOL message: Generalising variables "b", "u" in clause #1 (13:2-13:40)>>
+<<HOL message: Generalising variables "t", "u" in clause #2 (15:2-15:20)>>
+<<HOL message: Generalising variables "a", "f", "f'" in clause #3 (17:2-17:46)>>
+<<HOL message: Generalising variables "a", "a'", "f" in clause #4 (19:2-19:46)>>
+<<HOL message: Generalising variables "A", "A'", "b" in clause #5 (21:2-21:46)>>
+<<HOL message: Generalising variables "A", "b", "b'" in clause #6 (23:2-23:46)>>
+<<HOL message: Generalising variables "b", "b'" in clause #7 (25:2-25:44)>>
+<<HOL message: Generalising variables "A", "A'", "B" in clause #8 (27:2-27:44)>>
+<<HOL message: Generalising variables "A", "B", "B'" in clause #9 (29:2-29:44)>>
+Saved theorem _______ "red_rules"
+Saved theorem _______ "red_ind"
+Saved theorem _______ "red_strongind"
+Saved theorem _______ "red_cases"
+Saved theorem _______ "red_beta"
+Saved theorem _______ "red_beta_unannotated"
+Saved theorem _______ "red_user"
+Saved theorem _______ "red_app_fun"
+Saved theorem _______ "red_app_arg"
+Saved theorem _______ "red_lam_type"
+Saved theorem _______ "red_lam_body"
+Saved theorem _______ "red_lamU_body"
+Saved theorem _______ "red_pi_domain"
+Saved theorem _______ "red_pi_codomain"
+Saved definition ____ "reduces_def"
+Saved definition ____ "joinable_def"
+Saved definition ____ "convertible_def"
+Saved theorem _______ "red_implies_convertible"
+Saved theorem _______ "convertible_refl"
+Saved theorem _______ "convertible_sym"
+Saved theorem _______ "convertible_trans"
+Saved theorem _______ "reduces_implies_convertible"
+Saved theorem _______ "joinable_implies_convertible"
+Saved definition ____ "confluent_def"
+Saved theorem _______ "red_contains_user"
+Saved theorem _______ "beta_is_red"
+Saved theorem _______ "beta_unannotated_is_red"
+Saved theorem _______ "reduces_refl"
+Saved theorem _______ "reduces_step"
+Saved theorem _______ "reduces_trans"
+Saved theorem _______ "joinable_refl"
+Saved theorem _______ "joinable_sym"
+Saved theorem _______ "joinable_trans_confluent"
+Saved theorem _______ "red_implies_joinable"
+Saved theorem _______ "convertible_implies_joinable_confluent"
+Saved theorem _______ "convertible_iff_joinable_confluent"
+Saved theorem _______ "joinable_equivalence_under_confluence"
+Exporting theory "LambdaPiReduction" ... done.
+Theory "LambdaPiReduction" took 0.58595s to build
+Holmake: [3/5] LambdaPiReduction
+Holmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiTypingScript.uo to produce theory-builder executable
+<<HOL message: Created theory "LambdaPiTyping">>
+Saved definition ____ "is_sort_def"
+Saved definition ____ "ctx_type_def"
+<<HOL message: Treating "Sigma", "R" as schematic variables>>
+<<HOL message: Generalising variable "G" in clause #0 (23:2-23:33)>>
+<<HOL message: Generalising variables "A", "G", "c" in clause #1 (25:2-26:33)>>
+<<HOL message: Generalising variables "A", "G", "n" in clause #2 (28:2-29:31)>>
+<<HOL message: Generalising variables "A", "B", "G", "s" in clause #3 (31:2-34:32)>>
+<<HOL message: Generalising variables "A", "B", "G", "b", "s" in clause #4 (36:2-40:42)>>
+<<HOL message: Generalising variables "A", "B", "G", "b", "s" in clause #5 (42:2-46:41)>>
+<<HOL message: Generalising variables "A", "B", "G", "a", "f" in clause #6 (48:2-50:44)>>
+<<HOL message: Generalising variables "A", "B", "G", "s", "t" in clause #7 (52:2-56:23)>>
+Saved theorem _______ "has_type_rules"
+Saved theorem _______ "has_type_ind"
+Saved theorem _______ "has_type_strongind"
+Saved theorem _______ "has_type_cases"
+Saved theorem _______ "has_type_type_sort"
+Saved theorem _______ "has_type_constant"
+Saved theorem _______ "has_type_variable"
+Saved theorem _______ "has_type_product"
+Saved theorem _______ "has_type_abstraction"
+Saved theorem _______ "has_type_abstraction_unannotated"
+Saved theorem _______ "has_type_application"
+Saved theorem _______ "has_type_conversion"
+<<HOL message: Treating "Sigma", "R" as schematic variables>>
+<<HOL message: Generalising variables "A", "G" in clause #1 (63:2-65:30)>>
+Saved theorem _______ "wf_context_rules"
+Saved theorem _______ "wf_context_ind"
+Saved theorem _______ "wf_context_strongind"
+Saved theorem _______ "wf_context_cases"
+Saved theorem _______ "wf_context_empty"
+Saved theorem _______ "wf_context_extend"
+Saved definition ____ "signature_wf_def"
+Saved definition ____ "rewrite_preserves_typing_def"
+Saved theorem _______ "type_has_kind"
+Saved theorem _______ "constants_have_declared_types"
+Saved theorem _______ "variables_use_ctx_type"
+Saved theorem _______ "user_rewrite_preserves_type_when_certified"
+Saved theorem _______ "conversion_symmetry"
+Exporting theory "LambdaPiTyping" ... done.
+Theory "LambdaPiTyping" took 0.59923s to build
+Holmake: [4/5] LambdaPiTyping
+Holmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/KontroliProofAutomationScript.uo to produce theory-builder executable
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:607: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     metis_prove [...] target
+     handle Feedback.HOL_ERR _ => let val ... in ... ... end | _ => raise ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:624: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     metis_prove [...] target
+     handle
+        Feedback.HOL_ERR _ => let val ...; ... in ... ... end |
+        _ => raise ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1164: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     let val ... = ...; val ...; ... in ... ... p end
+     handle Feedback.HOL_ERR _ => ... ... target | _ => ... ...
+/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1155: warning: Matches are not exhaustive.
+Found near
+  case prems of
+     [p] =>
+     Thm.SYM p handle Feedback.HOL_ERR _ => ... ... (... ...) | _ => ... ...
+<<HOL message: Created theory "KontroliProofAutomation">>
+Saved theorem _______ "egglog_lift_subst"
+<<HOL warning: Context.snapshot: ambient context read while a proof was running (in KontroliProofAutomation)>>
+<<HOL warning: SmtLib.translate_type: uninterpreted type :num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$int_of_num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$Num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant $+>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant $<=>>
+<<HOL message: HolSmtLib: calling external command '/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3 proof=true pp.simplify_implies=false -smt2 -file:/tmp/MLTEMP8Wld8a > /tmp/MLTEMPH7KIdT'>>
+<<HOL message: HolSmtLib: parsing Z3 proof>>
+<<HOL message: HolSmtLib: checking Z3 proof>>
+<<HOL message: HolSmtLib: solver reports negated term to be 'unsatisfiable' (proof checked)>>
+Saved theorem _______ "lift_index_bound_z3"
+<<HOL warning: SmtLib.translate_type: uninterpreted type :num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$int_of_num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$Num>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant $+>>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant $->>
+<<HOL warning: SmtLib.translate_term: uninterpreted constant $<>>
+<<HOL message: HolSmtLib: calling external command '/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3 proof=true pp.simplify_implies=false -smt2 -file:/tmp/MLTEMPjXZqin > /tmp/MLTEMPdLv1RM'>>
+<<HOL message: HolSmtLib: parsing Z3 proof>>
+<<HOL message: HolSmtLib: checking Z3 proof>>
+<<HOL message: HolSmtLib: solver reports negated term to be 'unsatisfiable' (proof checked)>>
+Saved theorem _______ "substitution_index_cancel_z3"
+Missing tactic data: topology set_relation wellorder cardinal res_quan real_sigma metric RealFieldContext nets bitstring blast bag primeFactor schneiderUtilsContext intExtension frac rat hrat hreal realax real_arith real intreal HolSmt gcd int_arith cooper normalizer integer intReduce Omega numeral_bit hurdUtilsContext permutes iterate fcp sum_num logroot bit numposrep ASCIInumbers words integer_word ternaryComparisons string ConseqConv quantHeuristics patternMatches EnumTypeContext ind_type divides While NumConvContext cv BoolconvContext reduce SubAndCondContext one sum option pairToolsContext quotient pair InductiveDefinitionContext Canon_Port_Context mesonLibContext folMappingContext folToolsContext sat canonContext combin boolSimpsContext normalForms normalFormsContext relation marker num prim_rec arithmetic numeral basicSize numpair pred_set list rich_list indexedLists hol KontroliBase LambdaPiSyntax LambdaPiReduction LambdaPiTyping
+Run tttUnfold.ttt_record ()
+Loading 0 tactic calls in 0.0 seconds
+  metis_tac [red_app_fun, red_implies_convertible]
+Saved theorem _______ "application_conversion_tactictoe"
+Exporting theory "KontroliProofAutomation" ... done.
+Theory "KontroliProofAutomation" took 1.7s to build
+Exporting theory "KontroliProofAutomation" ... done.
+Theory "KontroliProofAutomation" took 1.8s to build
+Holmake: [5/5] KontroliProofAutomation

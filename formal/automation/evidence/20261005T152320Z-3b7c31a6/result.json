@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "status": "SCOPED_KERNEL_CHECKED",
+  "fingerprint": "9cd2ec4c65c8dd7575f4b1677c9ce54f811d264d84ddb97977aa01d49ebf17f7",
+  "inputs": {
+    "formal/hol4/KontroliBaseScript.sml": "661b54c99ce71c00dc4c335f91fef71c54f1a73f390d93ebd9295f375d42bc49",
+    "formal/hol4/KontroliKernelRefinementScript.sml": "1a70739b5c29fa1cdd1a671d06de2b8ba23100e199f1a6004aee3c4bbc412f09",
+    "formal/hol4/KontroliProofAutomationScript.sml": "94697fa9297884cafd54c2f0f0f47c63bdd3bafc43267a9a8e46a008439d8ba6",
+    "formal/hol4/KontroliSurfaceScript.sml": "3e79b11cef1d9e0e5df3da6c24b00c854a2dedc705505d603aeb2888cff7cad8",
+    "formal/hol4/LambdaPiBetaApplicationScript.sml": "1cf552b16183b89a4919f1926b902d3f0dfec0df24cfac6d71359500d8c9d860",
+    "formal/hol4/LambdaPiBinderAlgebraScript.sml": "998b2686acd0b29c984701ae140475706f372249900bce17ab5eca305141caab",
+    "formal/hol4/LambdaPiCongruenceScript.sml": "21dea902a8bb222b6430e122f5f0be5f0d567450d907a674fd3fb85557749ad1",
+    "formal/hol4/LambdaPiContextConversionScript.sml": "b36838258de958987a987892301d3e709d295a2391d51b61966c95a0d3b38130",
+    "formal/hol4/LambdaPiContextInsertionScript.sml": "a8a0935a286fcc6959bb30df762b6a735f64ab6ebe404d9e73f11705eaab6cbe",
+    "formal/hol4/LambdaPiContextWellformedScript.sml": "7d20120d6dc958102d9414c797792971111479a1579e282a3e7a12d26c8956cc",
+    "formal/hol4/LambdaPiEtaScript.sml": "c52cd4bba565cf4eb3e82f12e3e5ccfcde4844bce72b6ed2b2433933e29a1e08",
+    "formal/hol4/LambdaPiGenerationScript.sml": "bc6ba760a6e942113c50e947d84ab9df0c1ef42b18e025fb67032eae190d8d51",
+    "formal/hol4/LambdaPiMetatheoryScript.sml": "d21249abcb047ff6bf4dbbbd8cf7e10fd75a2d72bf892817fde40672a2f21c65",
+    "formal/hol4/LambdaPiReductionScript.sml": "70bf53bbd10d40a06d24fc8203e468e85a553fcbf6ffb75bb1ad78c12034d8f3",
+    "formal/hol4/LambdaPiRegularityScript.sml": "d09ad0fcde3261ca5e13b86a004588968462ab6452f56836b219c60d8eca6a56",
+    "formal/hol4/LambdaPiScopingScript.sml": "377d78586b8ccf17cff1319d75748ad3b1300e4d57ca3e7e4fff415225ec4f14",
+    "formal/hol4/LambdaPiStructuralReductionScript.sml": "80d2d0fa76b94bf7216aaaf19d353d2d55b0d68e420213774305dacef2d80697",
+    "formal/hol4/LambdaPiSubjectReductionFinalScript.sml": "6052ccc7228477a395316b9852d38a3a3da9ef68084b0d0ec77bfb4cf3ed8822",
+    "formal/hol4/LambdaPiSubjectReductionScript.sml": "9958ca5cbe8c5038f85262cd4d9bc46827a732156d2343b3ebeed6482e2a242a",
+    "formal/hol4/LambdaPiSubstLookupScript.sml": "528a1236439924ad53f6a64e312556897b38a6e946b07374c8ca18db796108bb",
+    "formal/hol4/LambdaPiSubstitutionScript.sml": "63b6b54ca4861d2c957f0756defbfdff65c4134e64b723d0747a9434ca909c98",
+    "formal/hol4/LambdaPiSyntaxScript.sml": "c258ba16425b2ff518a8fe411578f624c164318d86d62ce37c2336e13319be67",
+    "formal/hol4/LambdaPiTypingScript.sml": "2e9cb457210ef3afd033fd785baf0dae610ff44ecf9d9f54a5af9678669736f2",
+    "formal/hol4/LambdaPiTypingSubstitutionScript.sml": "e0d22b6cbec11e15c31291bc43a73bc96576d4902182aab802a155d48cd101d1",
+    "formal/hol4/LambdaPiWeakeningScript.sml": "f24db22fa2a9c1c00fd46cd1fc8f8cceb96567b5fa3ffcb1004befade6b777a3",
+    "formal/automation/reuse.json": "2750694816362987eaca0996c27f1a81dcc377d348b18b53813fea05885ccafc",
+    "formal/automation/binder-rewrites.tsv": "e9b69fa4e4792b7fde0408aaef9e80e0b253c8d64a7a5f54bfdea2c6a1c49574",
+    "scripts/run_proof_automation.py": "c40ada4fe0f45a0acf3a300afb14e6800cbbac147befafd0ba5b723dfb048e0c"
+  },
+  "tools": {
+    "hol4": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "sha256": "ffbd2169dc564939b768f3b8f8530a8533133e5a0d3a0df5f9febda367f6a05c"
+      },
+      "hol4-mcp": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+        "sha256": "5fc44c37cea4dd684c66f0b716f1b47c3a0525c80afa60cf369696ec2196f968"
+      },
+      "Z3": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3",
+        "sha256": "112132c9f82751e663f5a5573957c678f9af821aaf376d0c5863e4f076370444"
+      }
+    },
+    "egglog": "72600637f7d8e3759d4dd862070ccd53177de0ca2f37e9133856d9c5acd6b88c",
+    "rustc": "31b7b43116488485e7eeddf1a41216531935b80f322784afbec89f7f0daabfac",
+    "reused_sources": {
+      "tools/cakeml-hol4/egglog-bridge/src/main.rs": "5637ec82122f5f118de82c64c21616ddff34f558131337d697e915d10c3b7d52",
+      "tools/cakeml-hol4/formal/Hol4ProofSearchLib.sml": "ec856c6d74f914314e5f6aeece40feea676d6bafb656125cd538b1d763eb8a72",
+      "tools/cakeml-hol4/formal/Hol4ProofSearchLib.sig": "e494d36131c9e361228c44a6a7476d90de13e8a3c6672b48392fa4a2449eaf5a"
+    }
+  },
+  "steps": {
+    "bridge-build": {
+      "argv": [
+        "/workspace/scratch/c292b11e437a/runtime/rust/usr/lib/rust-1.89/bin/rustc",
+        "--edition=2024",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/bridge.rs",
+        "-o",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/bridge"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:23:20.544696+00:00",
+      "finished_at": "2026-10-05T15:23:20.853909+00:00",
+      "duration_seconds": 0.3090764720000152
+    },
+    "egglog": {
+      "argv": [
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/bridge",
+        "--egglog",
+        "/workspace/scratch/c292b11e437a/egglog/target/release/egglog",
+        "--rules",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/formal/automation/binder-rewrites.tsv",
+        "--lhs",
+        "(App (Const \"lift0\") (App (Const \"lift0\") (Var \"t\")))",
+        "--rhs",
+        "(Var \"t\")",
+        "--out",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/egglog-rewrites.txt",
+        "--receipt",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/formal/automation/evidence/20261005T152320Z-3b7c31a6/egglog-receipt.json"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:23:20.854425+00:00",
+      "finished_at": "2026-10-05T15:23:20.862810+00:00",
+      "duration_seconds": 0.008301548999952502
+    },
+    "hol4": {
+      "argv": [
+        "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "--qof",
+        "--no-cache",
+        "-j1",
+        "KontroliProofAutomationTheory.uo"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6",
+      "returncode": 0,
+      "stdout": "Holmake: Scanning $(HOLDIR)/src/hol88\nHolmake: Scanning $(HOLDIR)/src/TeX\nHolmake: Scanning $(HOLDIR)/src/bag\nHolmake: Scanning $(HOLDIR)/src/sort\nHolmake: Scanning $(HOLDIR)/src/string\nHolmake: Scanning $(HOLDIR)/src/n-bit\nHolmake: Scanning $(HOLDIR)/src/res_quan/src\nHolmake: Scanning $(HOLDIR)/src/finite_maps\nHolmake: Scanning $(HOLDIR)/src/integer\nHolmake: Scanning $(HOLDIR)/src/rational\nHolmake: Scanning $(HOLDIR)/src/transfer\nHolmake: Scanning $(HOLDIR)/src/pred_set/src/more_theories\nHolmake: Scanning $(HOLDIR)/src/algebra/base\nHolmake: Scanning $(HOLDIR)/src/algebra/construction\nHolmake: Scanning $(HOLDIR)/src/algebra\nHolmake: Scanning $(HOLDIR)/src/real\nHolmake: Scanning $(HOLDIR)/src/real/analysis\nHolmake: Scanning $(HOLDIR)/src/HolSmt\nHolmake: Scanning $(HOLDIR)/src/tactictoe/src\nHolmake: Scanned 20 directories\nHolmake: Building 5 theory files\nHolmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/KontroliBaseScript.uo to produce theory-builder executable\n<<HOL message: Created theory \"KontroliBase\">>\nSaved theorem _______ \"num2ksort_ksort2num\"\nSaved theorem _______ \"ksort2num_num2ksort\"\nSaved theorem _______ \"num2ksort_11\"\nSaved theorem _______ \"ksort2num_11\"\nSaved theorem _______ \"num2ksort_ONTO\"\nSaved theorem _______ \"ksort2num_ONTO\"\nSaved theorem _______ \"num2ksort_thm\"\nSaved theorem _______ \"ksort2num_thm\"\nSaved theorem _______ \"ksort_EQ_ksort\"\nSaved theorem _______ \"ksort_case_def\"\nSaved theorem _______ \"datatype_ksort\"\nSaved theorem _______ \"ksort_distinct\"\nSaved theorem _______ \"ksort_nchotomy\"\nSaved theorem _______ \"ksort_Axiom\"\nSaved theorem _______ \"ksort_induction\"\nSaved theorem _______ \"ksort_case_cong\"\nSaved theorem _______ \"ksort_case_eq\"\n<<HOL message: Defined type: \"ksort\">>\nSaved theorem _______ \"KType_neq_KKind\"\nSaved theorem _______ \"ksort_cases\"\nExporting theory \"KontroliBase\" ... done.\nTheory \"KontroliBase\" took 0.13092s to build\nHolmake: [1/5] KontroliBase\nHolmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiSyntaxScript.uo to produce theory-builder executable\n<<HOL message: Created theory \"LambdaPiSyntax\">>\nSaved theorem _______ \"datatype_term\"\nSaved theorem _______ \"term_11\"\nSaved theorem _______ \"term_distinct\"\nSaved theorem _______ \"term_nchotomy\"\nSaved theorem _______ \"term_Axiom\"\nSaved theorem _______ \"term_induction\"\nSaved theorem _______ \"term_case_cong\"\nSaved theorem _______ \"term_case_eq\"\n<<HOL message: Defined type: \"term\">>\nSaved definition ____ \"lift_def\"\nSaved definition ____ \"subst_def\"\nSaved definition ____ \"subst0_def\"\nSaved theorem _______ \"lift_zero\"\nSaved theorem _______ \"lift_var_below\"\nSaved theorem _______ \"lift_var_at_or_above\"\nSaved theorem _______ \"subst_var_same\"\nSaved theorem _______ \"subst_var_below\"\nSaved theorem _______ \"subst_var_above\"\nSaved theorem _______ \"subst0_var0\"\nExporting theory \"LambdaPiSyntax\" ... done.\nTheory \"LambdaPiSyntax\" took 0.38560s to build\nHolmake: [2/5] LambdaPiSyntax\nHolmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiReductionScript.uo to produce theory-builder executable\n<<HOL message: Created theory \"LambdaPiReduction\">>\n<<HOL message: Treating \"R\" as schematic variable>>\n<<HOL message: Generalising variables \"A\", \"b\", \"u\" in clause #0 (11:2-11:41)>>\n<<HOL message: Generalising variables \"b\", \"u\" in clause #1 (13:2-13:40)>>\n<<HOL message: Generalising variables \"t\", \"u\" in clause #2 (15:2-15:20)>>\n<<HOL message: Generalising variables \"a\", \"f\", \"f'\" in clause #3 (17:2-17:46)>>\n<<HOL message: Generalising variables \"a\", \"a'\", \"f\" in clause #4 (19:2-19:46)>>\n<<HOL message: Generalising variables \"A\", \"A'\", \"b\" in clause #5 (21:2-21:46)>>\n<<HOL message: Generalising variables \"A\", \"b\", \"b'\" in clause #6 (23:2-23:46)>>\n<<HOL message: Generalising variables \"b\", \"b'\" in clause #7 (25:2-25:44)>>\n<<HOL message: Generalising variables \"A\", \"A'\", \"B\" in clause #8 (27:2-27:44)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"B'\" in clause #9 (29:2-29:44)>>\nSaved theorem _______ \"red_rules\"\nSaved theorem _______ \"red_ind\"\nSaved theorem _______ \"red_strongind\"\nSaved theorem _______ \"red_cases\"\nSaved theorem _______ \"red_beta\"\nSaved theorem _______ \"red_beta_unannotated\"\nSaved theorem _______ \"red_user\"\nSaved theorem _______ \"red_app_fun\"\nSaved theorem _______ \"red_app_arg\"\nSaved theorem _______ \"red_lam_type\"\nSaved theorem _______ \"red_lam_body\"\nSaved theorem _______ \"red_lamU_body\"\nSaved theorem _______ \"red_pi_domain\"\nSaved theorem _______ \"red_pi_codomain\"\nSaved definition ____ \"reduces_def\"\nSaved definition ____ \"joinable_def\"\nSaved definition ____ \"convertible_def\"\nSaved theorem _______ \"red_implies_convertible\"\nSaved theorem _______ \"convertible_refl\"\nSaved theorem _______ \"convertible_sym\"\nSaved theorem _______ \"convertible_trans\"\nSaved theorem _______ \"reduces_implies_convertible\"\nSaved theorem _______ \"joinable_implies_convertible\"\nSaved definition ____ \"confluent_def\"\nSaved theorem _______ \"red_contains_user\"\nSaved theorem _______ \"beta_is_red\"\nSaved theorem _______ \"beta_unannotated_is_red\"\nSaved theorem _______ \"reduces_refl\"\nSaved theorem _______ \"reduces_step\"\nSaved theorem _______ \"reduces_trans\"\nSaved theorem _______ \"joinable_refl\"\nSaved theorem _______ \"joinable_sym\"\nSaved theorem _______ \"joinable_trans_confluent\"\nSaved theorem _______ \"red_implies_joinable\"\nSaved theorem _______ \"convertible_implies_joinable_confluent\"\nSaved theorem _______ \"convertible_iff_joinable_confluent\"\nSaved theorem _______ \"joinable_equivalence_under_confluence\"\nExporting theory \"LambdaPiReduction\" ... done.\nTheory \"LambdaPiReduction\" took 0.58595s to build\nHolmake: [3/5] LambdaPiReduction\nHolmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/LambdaPiTypingScript.uo to produce theory-builder executable\n<<HOL message: Created theory \"LambdaPiTyping\">>\nSaved definition ____ \"is_sort_def\"\nSaved definition ____ \"ctx_type_def\"\n<<HOL message: Treating \"Sigma\", \"R\" as schematic variables>>\n<<HOL message: Generalising variable \"G\" in clause #0 (23:2-23:33)>>\n<<HOL message: Generalising variables \"A\", \"G\", \"c\" in clause #1 (25:2-26:33)>>\n<<HOL message: Generalising variables \"A\", \"G\", \"n\" in clause #2 (28:2-29:31)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"G\", \"s\" in clause #3 (31:2-34:32)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"G\", \"b\", \"s\" in clause #4 (36:2-40:42)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"G\", \"b\", \"s\" in clause #5 (42:2-46:41)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"G\", \"a\", \"f\" in clause #6 (48:2-50:44)>>\n<<HOL message: Generalising variables \"A\", \"B\", \"G\", \"s\", \"t\" in clause #7 (52:2-56:23)>>\nSaved theorem _______ \"has_type_rules\"\nSaved theorem _______ \"has_type_ind\"\nSaved theorem _______ \"has_type_strongind\"\nSaved theorem _______ \"has_type_cases\"\nSaved theorem _______ \"has_type_type_sort\"\nSaved theorem _______ \"has_type_constant\"\nSaved theorem _______ \"has_type_variable\"\nSaved theorem _______ \"has_type_product\"\nSaved theorem _______ \"has_type_abstraction\"\nSaved theorem _______ \"has_type_abstraction_unannotated\"\nSaved theorem _______ \"has_type_application\"\nSaved theorem _______ \"has_type_conversion\"\n<<HOL message: Treating \"Sigma\", \"R\" as schematic variables>>\n<<HOL message: Generalising variables \"A\", \"G\" in clause #1 (63:2-65:30)>>\nSaved theorem _______ \"wf_context_rules\"\nSaved theorem _______ \"wf_context_ind\"\nSaved theorem _______ \"wf_context_strongind\"\nSaved theorem _______ \"wf_context_cases\"\nSaved theorem _______ \"wf_context_empty\"\nSaved theorem _______ \"wf_context_extend\"\nSaved definition ____ \"signature_wf_def\"\nSaved definition ____ \"rewrite_preserves_typing_def\"\nSaved theorem _______ \"type_has_kind\"\nSaved theorem _______ \"constants_have_declared_types\"\nSaved theorem _______ \"variables_use_ctx_type\"\nSaved theorem _______ \"user_rewrite_preserves_type_when_certified\"\nSaved theorem _______ \"conversion_symmetry\"\nExporting theory \"LambdaPiTyping\" ... done.\nTheory \"LambdaPiTyping\" took 0.59923s to build\nHolmake: [4/5] LambdaPiTyping\nHolmake: Linking /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T152320Z-3b7c31a6/KontroliProofAutomationScript.uo to produce theory-builder executable\n/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:607: warning: Matches are not exhaustive.\nFound near\n  case prems of\n     [p] =>\n     metis_prove [...] target\n     handle Feedback.HOL_ERR _ => let val ... in ... ... end | _ => raise ...\n/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:624: warning: Matches are not exhaustive.\nFound near\n  case prems of\n     [p] =>\n     metis_prove [...] target\n     handle\n        Feedback.HOL_ERR _ => let val ...; ... in ... ... end |\n        _ => raise ...\n/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1164: warning: Matches are not exhaustive.\nFound near\n  case prems of\n     [p] =>\n     let val ... = ...; val ...; ... in ... ... p end\n     handle Feedback.HOL_ERR _ => ... ... target | _ => ... ...\n/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/src/HolSmt/Alethe_ProofReplay.sml:1155: warning: Matches are not exhaustive.\nFound near\n  case prems of\n     [p] =>\n     Thm.SYM p handle Feedback.HOL_ERR _ => ... ... (... ...) | _ => ... ...\n<<HOL message: Created theory \"KontroliProofAutomation\">>\nSaved theorem _______ \"egglog_lift_subst\"\n<<HOL warning: Context.snapshot: ambient context read while a proof was running (in KontroliProofAutomation)>>\n<<HOL warning: SmtLib.translate_type: uninterpreted type :num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$int_of_num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$Num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant $+>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant $<=>>\n<<HOL message: HolSmtLib: calling external command '/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3 proof=true pp.simplify_implies=false -smt2 -file:/tmp/MLTEMP8Wld8a > /tmp/MLTEMPH7KIdT'>>\n<<HOL message: HolSmtLib: parsing Z3 proof>>\n<<HOL message: HolSmtLib: checking Z3 proof>>\n<<HOL message: HolSmtLib: solver reports negated term to be 'unsatisfiable' (proof checked)>>\nSaved theorem _______ \"lift_index_bound_z3\"\n<<HOL warning: SmtLib.translate_type: uninterpreted type :num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$int_of_num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant integer$Num>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant $+>>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant $->>\n<<HOL warning: SmtLib.translate_term: uninterpreted constant $<>>\n<<HOL message: HolSmtLib: calling external command '/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3 proof=true pp.simplify_implies=false -smt2 -file:/tmp/MLTEMPjXZqin > /tmp/MLTEMPdLv1RM'>>\n<<HOL message: HolSmtLib: parsing Z3 proof>>\n<<HOL message: HolSmtLib: checking Z3 proof>>\n<<HOL message: HolSmtLib: solver reports negated term to be 'unsatisfiable' (proof checked)>>\nSaved theorem _______ \"substitution_index_cancel_z3\"\nMissing tactic data: topology set_relation wellorder cardinal res_quan real_sigma metric RealFieldContext nets bitstring blast bag primeFactor schneiderUtilsContext intExtension frac rat hrat hreal realax real_arith real intreal HolSmt gcd int_arith cooper normalizer integer intReduce Omega numeral_bit hurdUtilsContext permutes iterate fcp sum_num logroot bit numposrep ASCIInumbers words integer_word ternaryComparisons string ConseqConv quantHeuristics patternMatches EnumTypeContext ind_type divides While NumConvContext cv BoolconvContext reduce SubAndCondContext one sum option pairToolsContext quotient pair InductiveDefinitionContext Canon_Port_Context mesonLibContext folMappingContext folToolsContext sat canonContext combin boolSimpsContext normalForms normalFormsContext relation marker num prim_rec arithmetic numeral basicSize numpair pred_set list rich_list indexedLists hol KontroliBase LambdaPiSyntax LambdaPiReduction LambdaPiTyping\nRun tttUnfold.ttt_record ()\nLoading 0 tactic calls in 0.0 seconds\n  metis_tac [red_app_fun, red_implies_convertible]\nSaved theorem _______ \"application_conversion_tactictoe\"\nExporting theory \"KontroliProofAutomation\" ... done.\nTheory \"KontroliProofAutomation\" took 1.7s to build\nExporting theory \"KontroliProofAutomation\" ... done.\nTheory \"KontroliProofAutomation\" took 1.8s to build\nHolmake: [5/5] KontroliProofAutomation\n",
+      "stderr": "",
+      "stdout_sha256": "6e2d5e5e7b9e242b1480692daa5670fdab60802fd42e984baee852d0c09fe412",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 12737,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:23:20.872033+00:00",
+      "finished_at": "2026-10-05T15:23:40.873705+00:00",
+      "duration_seconds": 20.000993202000245
+    }
+  },
+  "claim": "four scoped automation lemmas; whole metatheory, Rust refinement and binary refinement remain open",
+  "signature_adaptation": {
+    "original_sha256": "e494d36131c9e361228c44a6a7476d90de13e8a3c6672b48392fa4a2449eaf5a",
+    "qualified_sha256": "1756155901ccb35f85e819bf6732973c05650f8d6cbf72f48112c938816ba7bc",
+    "reason": "qualify kernel types in the inherited standalone signature"
+  },
+  "bridge_adaptation": {
+    "original_sha256": "5637ec82122f5f118de82c64c21616ddff34f558131337d697e915d10c3b7d52",
+    "seeded_sha256": "ea742dc1a971b381bc7d626586c23d0adb54f57dab5ae25333026a25e2ae0536"
+  },
+  "inspection": {
+    "schema": 1,
+    "theory": "KontroliProofAutomation",
+    "theorems": [
+      "egglog_lift_subst",
+      "lift_index_bound_z3",
+      "substitution_index_cancel_z3",
+      "application_conversion_tactictoe"
+    ],
+    "exact_goals_checked": true,
+    "hypotheses": 0,
+    "non_disk_oracles": 0,
+    "local_axioms": 0,
+    "claim": "scoped proof automation; whole-kernel and binary refinement remain open"
+  },
+  "exports": {
+    "KontroliProofAutomationTheory.cachekey": "eb0f3572b5e23587f0a8d4268b40aec789880195489c977873382b65bc2f2e4d",
+    "KontroliProofAutomationTheory.dat": "80347c3c1b6d5ba9204a78282477832f68a8d9a333f62b92c39a400ce1ff869c",
+    "KontroliProofAutomationTheory.uo": "3318e00f63e948930bf0375949f0b342438b700bdabd15ec6dcd168e60ba6364",
+    "KontroliProofAutomationTheory.ui": "5f66e3ccc7894d400081aa931f3421332bbd2476ebda0ad5677d5e09e5968b92",
+    "KontroliProofAutomationTheory.sml": "9748c862d0f5dce49d740d5f503641224a0b1f38ae5aaa3043c5c41719986d3e",
+    "KontroliProofAutomationTheory.sig": "c4ddeb1b324ba945e63bbaf93bbf6563353f880494eb03bd6dedc2506468ba45"
+  },
+  "mcp": {
+    "status": "READY",
+    "server": "{'name': 'hol', 'title': None, 'version': '4.0.11', 'description': None, 'websiteUrl': None, 'icons': None}",
+    "tools": [
+      "hol_check_proof",
+      "hol_file_status",
+      "hol_interrupt",
+      "hol_log",
+      "hol_logs",
+      "hol_restart",
+      "hol_send",
+      "hol_sessions",
+      "hol_setenv",
+      "hol_start",
+      "hol_state_at",
+      "hol_stop",
+      "holmake"
+    ],
+    "probe": "hol_sessions",
+    "claim": "MCP orchestration smoke test only; not proof evidence"
+  }
+}

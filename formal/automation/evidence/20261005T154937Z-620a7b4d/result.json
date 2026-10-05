@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "status": "SCOPED_KERNEL_CHECKED",
+  "fingerprint": "3c94e5bcf6484034af595810ef3ef9c428548bd4fde0737413905b79bddbca7b",
+  "inputs": {
+    "formal/hol4/KontroliBaseScript.sml": "661b54c99ce71c00dc4c335f91fef71c54f1a73f390d93ebd9295f375d42bc49",
+    "formal/hol4/KontroliKernelRefinementScript.sml": "1a70739b5c29fa1cdd1a671d06de2b8ba23100e199f1a6004aee3c4bbc412f09",
+    "formal/hol4/KontroliSurfaceScript.sml": "3e79b11cef1d9e0e5df3da6c24b00c854a2dedc705505d603aeb2888cff7cad8",
+    "formal/hol4/LambdaPiBetaApplicationScript.sml": "1cf552b16183b89a4919f1926b902d3f0dfec0df24cfac6d71359500d8c9d860",
+    "formal/hol4/LambdaPiBinderAlgebraScript.sml": "fb54c0aa3a729313d39268687d4f3862f9819915263c54c4f30c4d2fb02e62d4",
+    "formal/hol4/LambdaPiCongruenceScript.sml": "21dea902a8bb222b6430e122f5f0be5f0d567450d907a674fd3fb85557749ad1",
+    "formal/hol4/LambdaPiContextConversionScript.sml": "b36838258de958987a987892301d3e709d295a2391d51b61966c95a0d3b38130",
+    "formal/hol4/LambdaPiContextInsertionScript.sml": "a8a0935a286fcc6959bb30df762b6a735f64ab6ebe404d9e73f11705eaab6cbe",
+    "formal/hol4/LambdaPiContextWellformedScript.sml": "7d20120d6dc958102d9414c797792971111479a1579e282a3e7a12d26c8956cc",
+    "formal/hol4/LambdaPiEtaScript.sml": "c52cd4bba565cf4eb3e82f12e3e5ccfcde4844bce72b6ed2b2433933e29a1e08",
+    "formal/hol4/LambdaPiGenerationScript.sml": "bc6ba760a6e942113c50e947d84ab9df0c1ef42b18e025fb67032eae190d8d51",
+    "formal/hol4/LambdaPiMetatheoryScript.sml": "d21249abcb047ff6bf4dbbbd8cf7e10fd75a2d72bf892817fde40672a2f21c65",
+    "formal/hol4/LambdaPiReductionScript.sml": "70bf53bbd10d40a06d24fc8203e468e85a553fcbf6ffb75bb1ad78c12034d8f3",
+    "formal/hol4/LambdaPiRegularityScript.sml": "d09ad0fcde3261ca5e13b86a004588968462ab6452f56836b219c60d8eca6a56",
+    "formal/hol4/LambdaPiScopingScript.sml": "377d78586b8ccf17cff1319d75748ad3b1300e4d57ca3e7e4fff415225ec4f14",
+    "formal/hol4/LambdaPiStructuralReductionScript.sml": "80d2d0fa76b94bf7216aaaf19d353d2d55b0d68e420213774305dacef2d80697",
+    "formal/hol4/LambdaPiSubjectReductionFinalScript.sml": "6052ccc7228477a395316b9852d38a3a3da9ef68084b0d0ec77bfb4cf3ed8822",
+    "formal/hol4/LambdaPiSubjectReductionScript.sml": "9958ca5cbe8c5038f85262cd4d9bc46827a732156d2343b3ebeed6482e2a242a",
+    "formal/hol4/LambdaPiSubstLookupScript.sml": "528a1236439924ad53f6a64e312556897b38a6e946b07374c8ca18db796108bb",
+    "formal/hol4/LambdaPiSubstitutionScript.sml": "63b6b54ca4861d2c957f0756defbfdff65c4134e64b723d0747a9434ca909c98",
+    "formal/hol4/LambdaPiSyntaxScript.sml": "c258ba16425b2ff518a8fe411578f624c164318d86d62ce37c2336e13319be67",
+    "formal/hol4/LambdaPiTypingScript.sml": "2e9cb457210ef3afd033fd785baf0dae610ff44ecf9d9f54a5af9678669736f2",
+    "formal/hol4/LambdaPiTypingSubstitutionScript.sml": "e0d22b6cbec11e15c31291bc43a73bc96576d4902182aab802a155d48cd101d1",
+    "formal/hol4/LambdaPiWeakeningScript.sml": "f24db22fa2a9c1c00fd46cd1fc8f8cceb96567b5fa3ffcb1004befade6b777a3",
+    "formal/automation/hol4/KontroliProofAutomationScript.sml": "94697fa9297884cafd54c2f0f0f47c63bdd3bafc43267a9a8e46a008439d8ba6",
+    "formal/automation/reuse.json": "2750694816362987eaca0996c27f1a81dcc377d348b18b53813fea05885ccafc",
+    "formal/automation/binder-rewrites.tsv": "e9b69fa4e4792b7fde0408aaef9e80e0b253c8d64a7a5f54bfdea2c6a1c49574",
+    "scripts/run_proof_automation.py": "a66ecafafc8c35ca698e4002e43ee9bc26f7300617a41e90624a05c8dd087c37"
+  },
+  "tools": {
+    "hol4": {
+      "pins": {
+        "hol4_repo": "https://github.com/HOL-Theorem-Prover/HOL.git",
+        "hol4_commit": "40dd5b03de658f4bd9e3f4225fb0f1602ac90467",
+        "hol4_mcp_repo": "https://github.com/HOL-Theorem-Prover/hol4-mcp.git",
+        "hol4_mcp_commit": "5a8b59147059d581d510176c3405eb24d561c178",
+        "hol4_mcp_version": "0.1.0"
+      },
+      "Holmake": {
+        "path": "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "sha256": "ffbd2169dc564939b768f3b8f8530a8533133e5a0d3a0df5f9febda367f6a05c"
+      },
+      "hol4-mcp": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/hol4-mcp",
+        "sha256": "5fc44c37cea4dd684c66f0b716f1b47c3a0525c80afa60cf369696ec2196f968"
+      },
+      "Z3": {
+        "path": "/workspace/scratch/075feb80ddac/runtime/proof-automation/bin/z3",
+        "sha256": "112132c9f82751e663f5a5573957c678f9af821aaf376d0c5863e4f076370444"
+      }
+    },
+    "egglog": "72600637f7d8e3759d4dd862070ccd53177de0ca2f37e9133856d9c5acd6b88c",
+    "rustc": "31b7b43116488485e7eeddf1a41216531935b80f322784afbec89f7f0daabfac",
+    "reused_sources": {
+      "tools/cakeml-hol4/egglog-bridge/src/main.rs": "5637ec82122f5f118de82c64c21616ddff34f558131337d697e915d10c3b7d52",
+      "tools/cakeml-hol4/formal/Hol4ProofSearchLib.sml": "ec856c6d74f914314e5f6aeece40feea676d6bafb656125cd538b1d763eb8a72",
+      "tools/cakeml-hol4/formal/Hol4ProofSearchLib.sig": "e494d36131c9e361228c44a6a7476d90de13e8a3c6672b48392fa4a2449eaf5a"
+    }
+  },
+  "steps": {
+    "bridge-build": {
+      "argv": [
+        "/workspace/scratch/c292b11e437a/runtime/rust/usr/lib/rust-1.89/bin/rustc",
+        "--edition=2024",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d/bridge.rs",
+        "-o",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d/bridge"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:49:37.449504+00:00",
+      "finished_at": "2026-10-05T15:49:37.752025+00:00",
+      "duration_seconds": 0.3023859880004238,
+      "log": "bridge-build.log"
+    },
+    "egglog": {
+      "argv": [
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d/bridge",
+        "--egglog",
+        "/workspace/scratch/c292b11e437a/egglog/target/release/egglog",
+        "--rules",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/formal/automation/binder-rewrites.tsv",
+        "--lhs",
+        "(App (Const \"lift0\") (App (Const \"lift0\") (Var \"t\")))",
+        "--rhs",
+        "(Var \"t\")",
+        "--out",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d/egglog-rewrites.txt",
+        "--receipt",
+        "/workspace/scratch/c292b11e437a/kontroli-rs/formal/automation/evidence/20261005T154937Z-620a7b4d/egglog-receipt.json"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d",
+      "returncode": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:49:37.752616+00:00",
+      "finished_at": "2026-10-05T15:49:37.760959+00:00",
+      "duration_seconds": 0.008256801999777963,
+      "log": "egglog.log"
+    },
+    "hol4": {
+      "argv": [
+        "/workspace/scratch/075feb80ddac/MetaRocq-rs/.aegis/references/hol4/bin/Holmake",
+        "--qof",
+        "--no-cache",
+        "-j1",
+        "KontroliProofAutomationTheory.uo"
+      ],
+      "cwd": "/workspace/scratch/c292b11e437a/kontroli-rs/.aegis/proof-automation/20261005T154937Z-620a7b4d",
+      "returncode": 0,
+      "stdout_sha256": "fb4432205da3e8588c63c0f98c7a92ae30fd8034e8db398edcb4a61dafa33498",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 12497,
+      "stderr_bytes": 0,
+      "stdout_truncated": false,
+      "stderr_truncated": false,
+      "timed_out": false,
+      "started_at": "2026-10-05T15:49:37.768464+00:00",
+      "finished_at": "2026-10-05T15:49:59.526789+00:00",
+      "duration_seconds": 21.757812230000127,
+      "log": "hol4.log"
+    }
+  },
+  "claim": "four scoped automation lemmas; whole metatheory, Rust refinement and binary refinement remain open",
+  "previous_checked_checkpoint": null,
+  "signature_adaptation": {
+    "original_sha256": "e494d36131c9e361228c44a6a7476d90de13e8a3c6672b48392fa4a2449eaf5a",
+    "qualified_sha256": "1756155901ccb35f85e819bf6732973c05650f8d6cbf72f48112c938816ba7bc",
+    "reason": "qualify kernel types in the inherited standalone signature"
+  },
+  "bridge_adaptation": {
+    "original_sha256": "5637ec82122f5f118de82c64c21616ddff34f558131337d697e915d10c3b7d52",
+    "seeded_sha256": "ea742dc1a971b381bc7d626586c23d0adb54f57dab5ae25333026a25e2ae0536"
+  },
+  "inspection": {
+    "schema": 1,
+    "theory": "KontroliProofAutomation",
+    "theorems": [
+      "egglog_lift_subst",
+      "lift_index_bound_z3",
+      "substitution_index_cancel_z3",
+      "application_conversion_tactictoe"
+    ],
+    "exact_goals_checked": true,
+    "hypotheses": 0,
+    "non_disk_oracles": 0,
+    "local_axioms": 0,
+    "claim": "scoped proof automation; whole-kernel and binary refinement remain open"
+  },
+  "exports": {
+    "KontroliProofAutomationTheory.cachekey": "7144187d82efdc3eee50eaab980bf38b2c682fb47fe9508ebac6b55a1d0a85e4",
+    "KontroliProofAutomationTheory.dat": "3a6f3f431b61493419ffa148a7c615bee555c19059fa4d04c7d23e2d31706e98",
+    "KontroliProofAutomationTheory.uo": "b09a699914eb5690e4e2410717fb7ccfae5e631f95fb3dc3e4a74a3293b90437",
+    "KontroliProofAutomationTheory.ui": "bc0431c88f46396da809bf2910689e455b958dbc7c5e97e22098c1631cef8b05",
+    "KontroliProofAutomationTheory.sml": "fb4904ae65d6cce4ce36b69735ad212d51e11a8e29f7fbcdb8432ad850b2b5bd",
+    "KontroliProofAutomationTheory.sig": "c4ddeb1b324ba945e63bbaf93bbf6563353f880494eb03bd6dedc2506468ba45"
+  },
+  "mcp": {
+    "status": "READY",
+    "server": "{'name': 'hol', 'title': None, 'version': '4.0.11', 'description': None, 'websiteUrl': None, 'icons': None}",
+    "tools": [
+      "hol_check_proof",
+      "hol_file_status",
+      "hol_interrupt",
+      "hol_log",
+      "hol_logs",
+      "hol_restart",
+      "hol_send",
+      "hol_sessions",
+      "hol_setenv",
+      "hol_start",
+      "hol_state_at",
+      "hol_stop",
+      "holmake"
+    ],
+    "probe": "hol_sessions",
+    "claim": "MCP orchestration smoke test only; not proof evidence"
+  }
+}
