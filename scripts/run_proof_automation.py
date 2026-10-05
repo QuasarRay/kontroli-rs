@@ -47,6 +47,23 @@ def seed_bridge(source):
         raise ValueError("inherited Egglog bridge changed; re-audit its seed boundary")
     return source.replace(before, after)
 
+def lazy_search(source):
+    # SML list arguments are eager. The inherited library otherwise searches
+    # with SMT and TacticToe even after its named-rewrite proof succeeded.
+    before = '''  | first_success (NONE :: rest) = first_success rest
+  | first_success (SOME x :: _) = x;'''
+    after = '''  | first_success (attempt :: rest) =
+      (case attempt () of NONE => first_success rest | SOME x => x);'''
+    if source.count(before) != 1:
+        raise ValueError("inherited search dispatcher changed; re-audit lazy fallback")
+    source = source.replace(before, after)
+    for engine in ("egglog-replay", "z3-replay", "tactictoe-replay"):
+        before = 'attempt "' + engine + '"'
+        if source.count(before) != 1:
+            raise ValueError("inherited proof-search strategies changed")
+        source = source.replace(before, 'fn () => ' + before)
+    return source
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--hol-tools", type=Path, required=True)
@@ -94,7 +111,7 @@ def main():
     stage.mkdir(parents=True)
     packet = {"schema": 1, "status": "FAILED", "fingerprint": fingerprint,
               "inputs": inputs, "tools": tools, "steps": {},
-              "claim": "four scoped automation lemmas; whole metatheory, Rust refinement and binary refinement remain open"}
+              "claim": "scoped automation and binder algebra; whole metatheory, Rust refinement and binary refinement remain open"}
     packet["previous_checked_checkpoint"] = previous_run
     env = {**environment(ROOT), "PATH": os.environ["PATH"]}
     if os.environ.get("LD_LIBRARY_PATH"):
@@ -114,6 +131,12 @@ def main():
             shutil.copyfile(path, stage / path.name)
         for path, data in refs.items():
             if path != BRIDGE:
+                if path.endswith(".sml"):
+                    original = data
+                    data = lazy_search(data.decode()).encode()
+                    packet["search_adaptation"] = {
+                        "original_sha256": sha(original), "lazy_sha256": sha(data),
+                        "reason": "run fallback proof search only after the earlier strategy fails"}
                 if path.endswith(".sig"):
                     original = data
                     data = re.sub(r"\bterm\b", "Term.term", data.decode())
@@ -129,20 +152,22 @@ def main():
         execute("bridge-build", [args.rustc, "--edition=2024", stage / "bridge.rs", "-o", stage / "bridge"])
         execute("egglog", [stage / "bridge", "--egglog", args.egglog,
             "--rules", ROOT / "formal/automation/binder-rewrites.tsv",
-            "--lhs", '(App (Const "lift0") (App (Const "lift0") (Var "t")))',
+            "--lhs", '(App (App (Const "subst0") (Var "u")) (App (Const "lift1") (App (App (Const "subst0") (Var "a")) (App (Const "lift1") (App (Const "lift0") (Var "t"))))))',
             "--rhs", '(Var "t")', "--out", stage / "egglog-rewrites.txt",
             "--receipt", out / "egglog-receipt.json"])
         (stage / "Holmakefile").write_text("INCLUDES = $(HOLDIR)/src/integer $(HOLDIR)/src/HolSmt $(HOLDIR)/src/tactictoe/src\n")
         execute("hol4", [hol4_home() / "bin/Holmake", "--qof", "--no-cache", "-j1", "KontroliProofAutomationTheory.uo"])
         inspection = json.loads((stage / "automation-inspection.json").read_text())
-        expected = ["egglog_lift_subst", "lift_index_bound_z3", "substitution_index_cancel_z3", "application_conversion_tactictoe"]
-        if inspection.get("theorems") != expected or inspection.get("exact_goals_checked") is not True or any(
+        expected = ["egglog_lift_subst", "lift_index_bound_z3", "substitution_index_cancel_z3", "substitution_lift_bounds_z3", "application_conversion_tactictoe"]
+        metatheory = ["lift_compose", "subst_lift_commute", "subst_subst_ge", "red_subst_from_rewrite_closed", "convertible_subst_from_rewrite_closed"]
+        if inspection.get("theorems") != expected or inspection.get("metatheory_theorems") != metatheory or inspection.get("exact_goals_checked") is not True or any(
             inspection.get(k) != 0 for k in ("hypotheses", "non_disk_oracles", "local_axioms")):
             raise ValueError("unexpected HOL4 theorem inspection")
         packet["inspection"] = inspection
         (out / "inspection.json").write_text(json.dumps(inspection, indent=2) + "\n")
-        packet["exports"] = {p.name: sha(p.read_bytes()) for p in
-                             (stage / ".hol/objs").glob("KontroliProofAutomationTheory.*")}
+        packet["exports"] = {p.name: sha(p.read_bytes()) for theory in
+                             ("KontroliBase", "LambdaPiSyntax", "LambdaPiReduction", "LambdaPiTyping", "LambdaPiBinderAlgebra", "KontroliProofAutomation")
+                             for p in (stage / ".hol/objs").glob(theory + "Theory.*")}
         packet["mcp"] = mcp_smoke(ROOT, timeout=30)
         if inputs != {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in paths} or tools["hol4"] != identity(require_mcp=True):
             raise ValueError("proof inputs or kernel tools changed during replay")

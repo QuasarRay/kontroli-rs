@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "scope": "subst-slice",
+  "start_from": "crate::kernel::subst",
+  "claim": "Aeneas/Charon extraction qualification only; success does not prove refinement",
+  "install_status": 0,
+  "charon_status": 0,
+  "aeneas_hol4_status": 2,
+  "llbc_exists": true,
+  "llbc_sha256": "1a949fe07974fee39f5ae13a322c8cde47f3af668725967ba0b81f2880ab3bf3",
+  "mutable_reference_monomorphization": null,
+  "generated_files": [],
+  "symbol_manifest": null
+}

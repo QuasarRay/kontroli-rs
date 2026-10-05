@@ -12,10 +12,21 @@ top of them.
 The pinned Aeneas release is stored in `formal/hol4/toolchain.json`.
 `scripts/qualify_aeneas_hol4.sh`:
 
-1. downloads and hashes the pinned Aeneas/Charon release;
+1. reuses or downloads the pinned Aeneas/Charon release and checks its digest;
 2. extracts the `kontroli` library with Charon's `aeneas` preset;
 3. asks Aeneas to emit the HOL4 backend;
-4. records all diagnostics under `.aegis/aeneas`.
+4. records diagnostics, tool identities and source hashes in a fresh directory
+   under `.aegis/aeneas`.
+
+Runs are bounded and earlier evidence is preserved. With the default `all`
+scope, the whole-crate attempt is skipped if the required substitution slice
+fails. An explicit `AENEAS_SCOPE=full` requests a full diagnostic run.
+
+The current checkpoint extracts the actual substitution slice to LLBC after
+updating only `proc-macro2` in the lockfile. Aeneas rejects mixed recursive
+function/trait groups involving the substitution closures and fails translating
+signatures. Mutable-reference monomorphization did not fix the failure. No
+generated HOL4 model or implementation-refinement theorem is claimed.
 
 A failed qualification is intentionally useful evidence. In particular, the
 WHNF evaluator uses `Rc<RefCell<_>>` and `lazy_st::Thunk`. If those external

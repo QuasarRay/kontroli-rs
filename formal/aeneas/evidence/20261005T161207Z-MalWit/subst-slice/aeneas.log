@@ -1,0 +1,33 @@
+[[92mInfo[39m ] Imported: /workspace/scratch/c292b11e437a/kontroli-rs/.aegis/aeneas/20261005T161207Z-MalWit/subst-slice/kontroli.llbc
+[[91mError[39m] Detected groups of mixed mutually recursive definitions (such as a type mutually recursive with a function, or a function mutually recursive with a trait implementation):
+
+# Group 1:
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5): kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::Fn<(&'_4 mut kontroli::kernel::sterm::STerm<'_5, '_6>,), bool> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure}<'s, 't, '_2, '_3, S>}::call
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut
+
+[[91mError[39m] Mixed declaration groups (which contain both type and function declarations or functions and traits, for instance) are not supported yet: [20, 25, 59, 26, 27, 60, 61, 28, 29, 62, 63]
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+[[91mError[39m] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Uncaught exception:
+  
+  Aeneas.Errors.CFailure(_)
+
+Raised at Aeneas__Errors.craise_opt_span in file "Errors.ml", line 123, characters 4-46
+Called from Aeneas__Translate.translate_crate_to_pure.(fun) in file "Translate.ml", lines 390-395, characters 12-79
+Called from Stdlib__List.filter_map in file "list.ml", line 280, characters 12-15
+Called from Aeneas__Translate.translate_crate_to_pure in file "Translate.ml", lines 372-397, characters 6-59
+Called from Aeneas__Translate.translate_crate in file "Translate.ml", line 2199, characters 31-71
+Called from Dune__exe__Main in file "Main.ml", lines 765-766, characters 8-37

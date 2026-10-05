@@ -1,0 +1,17 @@
+[
+  {
+    "package": "rustc",
+    "xz_url": "https://static.rust-lang.org/dist/2026-09-17/rustc-nightly-x86_64-unknown-linux-gnu.tar.xz",
+    "xz_hash": "6c4b66572411880b75f845892414e9b0ea04dfbbc50e0ce5394bd162c3e0dda6"
+  },
+  {
+    "package": "rustc-dev",
+    "xz_url": "https://static.rust-lang.org/dist/2026-09-17/rustc-dev-nightly-x86_64-unknown-linux-gnu.tar.xz",
+    "xz_hash": "53e753dcf3977aa70779320f6dc3819b94f50a0529ac54725cb2e496a6b7fccb"
+  },
+  {
+    "package": "rust-std",
+    "xz_url": "https://static.rust-lang.org/dist/2026-09-17/rust-std-nightly-x86_64-unknown-linux-gnu.tar.xz",
+    "xz_hash": "ce0462a1f0c3d6bf22fb952918a9840f1e85e6c1c3edd1d7840a90ab0a08dd8c"
+  }
+]

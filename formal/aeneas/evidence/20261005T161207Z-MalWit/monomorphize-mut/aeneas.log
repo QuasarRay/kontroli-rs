@@ -1,0 +1,322 @@
+[[92mInfo[39m ] Imported: /workspace/scratch/c292b11e437a/runtime/extraction/monomorphize-mut/kontroli.llbc
+[[91mError[39m] Detected groups of mixed mutually recursive definitions (such as a type mutually recursive with a function, or a function mutually recursive with a trait implementation):
+
+# Group 1:
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5): kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::Fn<(&'_4 mut kontroli::kernel::sterm::STerm<'_5, '_6>,), bool> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure}<'s, 't, '_2, '_3, S>}::call
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- trait impl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once
+- fun decl(Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68): kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut
+
+[[93mWarn[39m ] Found an unknown type declaration with region parameters for which Charon could not determine mutability: we conservatively assume they are used in mutable borrows, but the extracted code may be incorrect.
+Type: core::iter::adapters::map::Map::<core::option::IterMut<_, _>, _>
+Compiler source: llbc/TypesAnalysis.ml, line 162
+
+[[91mError[39m] Mixed declaration groups (which contain both type and function declarations or functions and traits, for instance) are not supported yet: [20, 25, 59, 26, 27, 60, 61, 28, 29, 62, 63]
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+Source: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error, please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+Source: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+Source: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+Source: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{impl core::ops::function::FnOnce<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{closure}<'s, 't, '_2, '_3, '_4>}::call_once because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{core::ops::function::FnOnce<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::closure<'s, 't, '0, '1, '2>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call_once'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{impl core::ops::function::FnMut<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{closure}<'s, 't, '_2, '_3, '_4>}::call_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{core::ops::function::FnMut<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::closure<'s, 't, '0, '1, '2>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{impl core::ops::function::Fn<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{closure}<'s, 't, '_2, '_3, '_4>}::call because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::{core::ops::function::Fn<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single::closure<'s, 't, '0, '1, '2>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Source: 'kontroli/src/kernel/subst.rs', lines 40:8-46:9
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{impl core::ops::function::FnOnce<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{closure}<'s, 't, '_2>}::call_once because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{core::ops::function::FnOnce<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::closure<'s, 't, '0>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call_once'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{impl core::ops::function::FnMut<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{closure}<'s, 't, '_2>}::call_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{core::ops::function::FnMut<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::closure<'s, 't, '0>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{impl core::ops::function::Fn<(usize, usize), kontroli::kernel::sterm::STerm<'_, '_>> for kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{closure}<'s, 't, '_2>}::call because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::{core::ops::function::Fn<kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut::closure<'s, 't, '0>, (usize, usize), kontroli::kernel::sterm::STerm<'_, '_>>}::call'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Source: 'kontroli/src/kernel/subst.rs', lines 57:26-57:52
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_4 mut kontroli::kernel::sterm::STerm<'_5, '_6>,), bool> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure}<'s, 't, '_2, '_3, S>}::call_once because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnOnce<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure<'s, 't, '0, '1, @S>, (&'2 mut kontroli::kernel::sterm::STerm<'3, '4>), bool>}::call_once'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_4 mut kontroli::kernel::sterm::STerm<'_5, '_6>,), bool> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure}<'s, 't, '_2, '_3, S>}::call_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnMut<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure<'s, 't, '0, '1, @S>, (&'2 mut kontroli::kernel::sterm::STerm<'3, '4>), bool>}::call_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::Fn<(&'_4 mut kontroli::kernel::sterm::STerm<'_5, '_6>,), bool> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure}<'s, 't, '_2, '_3, S>}::call because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::Fn<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure<'s, 't, '0, '1, @S>, (&'2 mut kontroli::kernel::sterm::STerm<'3, '4>), bool>}::call'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Source: 'kontroli/src/kernel/subst.rs', lines 66:18-66:67
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnOnce<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure#1<'s, 't, '0, '1, '2, '3, '4, '5, @S>, (&'6 mut kontroli::kernel::sterm::STerm<'7, '8>), ()>}::call_once'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#1}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnMut<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure#1<'s, 't, '0, '1, '2, '3, '4, '5, @S>, (&'6 mut kontroli::kernel::sterm::STerm<'7, '8>), ()>}::call_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+Source: 'kontroli/src/kernel/subst.rs', lines 71:41-71:70
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnOnce<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_once because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnOnce<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure#2<'s, 't, '0, '1, '2, '3, '4, '5, @S>, (&'6 mut kontroli::kernel::sterm::STerm<'7, '8>), ()>}::call_once'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+[[93mWarn[39m ] Could not translate the function signature of 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{impl core::ops::function::FnMut<(&'_8 mut kontroli::kernel::sterm::STerm<'_9, '_10>,), ()> for kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{closure#2}<'s, 't, '_2, '_3, '_4, '_5, '_6, '_7, S>}::call_mut because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::{core::ops::function::FnMut<kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst::closure#2<'s, 't, '0, '1, '2, '3, '4, '5, @S>, (&'6 mut kontroli::kernel::sterm::STerm<'7, '8>), ()>}::call_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+Source: 'kontroli/src/kernel/subst.rs', lines 75:39-75:68
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Unimplemented
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+[[93mWarn[39m ] Could not translate the function signature of 'core::convert::From::{impl core::ops::function::FnOnce<(T,), Self> for TraitClause0::from}::call_once because of previous error
+Name pattern: 'core::convert::From::{core::ops::function::FnOnce<@, (@T), @Self>}::call_once'
+Definition span: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+
+This definition is (transitively) used at the following locations:
+Source: 'kontroli/src/comb.rs', lines 35:62-35:88
+Source: 'kontroli/src/comb.rs', lines 35:62-35:98
+Source: 'kontroli/src/comb.rs', lines 37:53-37:79
+
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Unimplemented
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+[[93mWarn[39m ] Could not translate the function signature of 'core::convert::From::{impl core::ops::function::FnMut<(T,), Self> for TraitClause0::from}::call_mut because of previous error
+Name pattern: 'core::convert::From::{core::ops::function::FnMut<@, (@T), @Self>}::call_mut'
+Definition span: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+
+This definition is (transitively) used at the following locations:
+Source: 'kontroli/src/comb.rs', lines 35:62-35:88
+Source: 'kontroli/src/comb.rs', lines 35:62-35:98
+
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+Compiler source: Translate.ml, line 390
+
+[[91mError[39m] Internal error: please file an issue
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+[[93mWarn[39m ] Could not translate the function 'core::convert::From::{impl core::ops::function::FnOnce<(T,), Self> for TraitClause0::from}::call_once because of previous error.
+Name pattern: 'core::convert::From::{core::ops::function::FnOnce<@, (@T), @Self>}::call_once'
+Definition span: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+
+This definition is (transitively) used at the following locations:
+Source: 'kontroli/src/comb.rs', lines 35:62-35:88
+Source: 'kontroli/src/comb.rs', lines 35:62-35:98
+Source: 'kontroli/src/comb.rs', lines 37:53-37:79
+
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error: please file an issue
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+[[93mWarn[39m ] Could not translate the function 'core::convert::From::{impl core::ops::function::FnMut<(T,), Self> for TraitClause0::from}::call_mut because of previous error.
+Name pattern: 'core::convert::From::{core::ops::function::FnMut<@, (@T), @Self>}::call_mut'
+Definition span: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+
+This definition is (transitively) used at the following locations:
+Source: 'kontroli/src/comb.rs', lines 35:62-35:88
+Source: 'kontroli/src/comb.rs', lines 35:62-35:98
+
+Source: '/rustc/library/core/src/convert/mod.rs', lines 594:4-594:30
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::apply_subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Source: 'kontroli/src/kernel/subst.rs', lines 6:4-32:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error, please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 35:26-35:43
+[[93mWarn[39m ] Could not translate the body of function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst because of previous error
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+Source: 'kontroli/src/kernel/subst.rs', lines 35:26-35:43
+Compiler source: interp/Interp.ml, line 617
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+Source: 'kontroli/src/kernel/subst.rs', lines 34:4-37:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error, please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::psubst_single'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+Source: 'kontroli/src/kernel/subst.rs', lines 39:4-47:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+Source: 'kontroli/src/kernel/subst.rs', lines 49:4-54:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::kernel::sterm::STerm<'s, 't>}::shift_mut'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+Source: 'kontroli/src/kernel/subst.rs', lines 56:4-58:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error: please file an issue
+Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+[[93mWarn[39m ] Could not translate the function 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst because of previous error.
+Name pattern: 'kontroli::kernel::subst::{kontroli::comb::Comb<&'t alloc::string::String, kontroli::kernel::sterm::STerm<'s, 't>>}::apply_subst'
+Definition span: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+Source: 'kontroli/src/kernel/subst.rs', lines 62:4-83:5
+Compiler source: Translate.ml, line 298
+
+[[91mError[39m] Internal error, please file an issue
+Source: '/rustc/library/core/src/option.rs', lines 1160:4-1162:53
+[[93mWarn[39m ] Could not translate the body of function 'kontroli::comb::{impl core::convert::From<&'c kontroli::comb::Comb<Id, Tm>> for kontroli::comb::Comb<&'c Id, Tm2>}::from because of previous error
+Name pattern: 'kontroli::comb::{core::convert::From<kontroli::comb::Comb<&'c @Id, @Tm2>, &'c kontroli::comb::Comb<@Id, @Tm>>}::from'
+Definition span: 'kontroli/src/comb.rs', lines 33:4-39:5
+Source: '/rustc/library/core/src/option.rs', lines 1160:4-1162:53
+Compiler source: interp/Interp.ml, line 617
+
+Uncaught exception:
+  
+  (Invalid_argument "option is None")
+
+Raised at Stdlib.invalid_arg in file "stdlib.ml", line 30, characters 20-45
+Called from Aeneas__SymbolicToPureValues.tvalue_to_texpr in file "symbolic/SymbolicToPureValues.ml", line 127, characters 14-73
+Called from Stdlib__List.map in file "list.ml", line 83, characters 15-19
+Called from Aeneas__SymbolicToPureValues.tvalue_to_texpr in file "symbolic/SymbolicToPureValues.ml", line 98, characters 21-49
+Called from Aeneas__SymbolicToPureValues.tvalue_to_texpr in file "symbolic/SymbolicToPureValues.ml" (inlined), line 87, characters 18-42
+Called from Aeneas__SymbolicToPureValues.tvalue_to_texpr in file "symbolic/SymbolicToPureValues.ml", line 129, characters 12-24
+Called from Aeneas__SymbolicToPureExpressions.translate_emeta in file "symbolic/SymbolicToPureExpressions.ml", line 2197, characters 17-44
+Called from Aeneas__SymbolicToPureExpressions.translate_expansion in file "symbolic/SymbolicToPureExpressions.ml", line 1387, characters 23-43
+Called from Aeneas__SymbolicToPureExpressions.translate_ExpandAdt_one_branch in file "symbolic/SymbolicToPureExpressions.ml", line 1510, characters 15-40
+Called from Aeneas__SymbolicToPureExpressions.translate_emeta in file "symbolic/SymbolicToPureExpressions.ml", line 2223, characters 15-35
+Called from Aeneas__SymbolicToPureExpressions.translate_expansion.translate_branch in file "symbolic/SymbolicToPureExpressions.ml", line 1420, characters 25-50
+Called from Stdlib__List.map in file "list.ml", line 87, characters 15-19
+Called from Aeneas__SymbolicToPureExpressions.translate_expansion in file "symbolic/SymbolicToPureExpressions.ml", line 1424, characters 12-79
+Called from Aeneas__SymbolicToPureExpressions.translate_intro_symbolic in file "symbolic/SymbolicToPureExpressions.ml", line 1556, characters 15-35
+Called from Aeneas__SymbolicToPureExpressions.translate_expansion in file "symbolic/SymbolicToPureExpressions.ml", line 1387, characters 23-43
+Called from Aeneas__SymbolicToPureExpressions.translate_emeta in file "symbolic/SymbolicToPureExpressions.ml", line 2223, characters 15-35
+Called from Aeneas__SymbolicToPure.translate_fun_decl_body in file "symbolic/SymbolicToPure.ml", line 50, characters 13-36
+Called from Aeneas__SymbolicToPure.translate_fun_decl in file "symbolic/SymbolicToPure.ml", line 90, characters 17-61
+Called from Aeneas__Translate.translate_function_to_pure_aux in file "Translate.ml", line 269, characters 23-71
+Called from Aeneas__Translate.translate_function_to_pure in file "Translate.ml", lines 287-288, characters 6-41
+Called from Aeneas__Translate.translate_crate_to_pure.process.(fun) in file "Translate.ml", lines 489-490, characters 16-45
+Called from Stdlib__List.filter_map in file "list.ml", line 280, characters 12-15
+Called from Stdlib__List.filter_map in file "list.ml", line 282, characters 23-37
+Called from Aeneas__Parallel.catch_reraise in file "Parallel.ml", line 17, characters 6-9
+Called from Aeneas__Translate.translate_crate_to_pure in file "Translate.ml", line 507, characters 22-62
+Called from Aeneas__Translate.translate_crate in file "Translate.ml", line 2199, characters 31-71
+Called from Dune__exe__Main in file "Main.ml", lines 765-766, characters 8-37
